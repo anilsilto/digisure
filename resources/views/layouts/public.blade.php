@@ -15,23 +15,23 @@
                 <x-brand.logo class="h-16 md:h-20" />
             </a>
 
-            <nav class="hidden items-center gap-6 text-sm font-medium text-muted md:flex">
+            <nav class="hidden items-center gap-7 text-base font-semibold text-navy md:flex">
                 <div class="group relative">
-                    <button type="button" class="hover:text-navy">Ürünlerimiz</button>
-                    <div class="invisible absolute left-0 top-full z-20 w-52 rounded-lg border border-line bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
-                        <a href="{{ url('/trafik-sigortasi') }}" class="block rounded px-3 py-2 hover:bg-navy-tint">Trafik Sigortası</a>
-                        <a href="{{ url('/kasko-sigortasi') }}" class="block rounded px-3 py-2 hover:bg-navy-tint">Kasko Sigortası</a>
-                        <a href="{{ url('/saglik-sigortasi') }}" class="block rounded px-3 py-2 hover:bg-navy-tint">Sağlık Sigortası</a>
+                    <button type="button" class="hover:text-accent">Ürünlerimiz</button>
+                    <div class="invisible absolute left-0 top-full z-20 w-56 rounded-lg border border-line bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
+                        <a href="{{ url('/trafik-sigortasi') }}" class="block rounded px-3 py-2 text-base text-navy hover:bg-navy-tint hover:text-accent">Trafik Sigortası</a>
+                        <a href="{{ url('/kasko-sigortasi') }}" class="block rounded px-3 py-2 text-base text-navy hover:bg-navy-tint hover:text-accent">Kasko Sigortası</a>
+                        <a href="{{ url('/saglik-sigortasi') }}" class="block rounded px-3 py-2 text-base text-navy hover:bg-navy-tint hover:text-accent">Sağlık Sigortası</a>
                     </div>
                 </div>
-                <a href="{{ url('/hesaplama') }}" class="hover:text-navy">Hesaplama Araçları</a>
-                <a href="{{ url('/hakkimizda') }}" class="hover:text-navy">Hakkımızda</a>
-                <a href="{{ url('/iletisim') }}" class="hover:text-navy">İletişim</a>
-                <a href="{{ url('/hesabim') }}" class="hover:text-navy">Hesabım</a>
+                <a href="{{ url('/hesaplama') }}" class="hover:text-accent">Hesaplama Araçları</a>
+                <a href="{{ url('/hakkimizda') }}" class="hover:text-accent">Hakkımızda</a>
+                <a href="{{ url('/iletisim') }}" class="hover:text-accent">İletişim</a>
+                <a href="{{ url('/hesabim') }}" class="hover:text-accent">Hesabım</a>
             </nav>
 
             <a href="{{ url('/teklif') }}"
-               class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-accent-dark">
+               class="rounded-lg bg-accent px-6 py-3 text-base font-bold text-white shadow-sm transition hover:bg-accent-dark">
                 Teklif Al
             </a>
         </div>
