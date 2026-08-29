@@ -4,7 +4,12 @@
 
 @section('content')
     <section class="mx-auto max-w-xl px-4 py-20 text-center">
-        <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ok/10 text-2xl text-ok">✓</div>
+        @php $mascot = collect(['png', 'webp', 'jpg'])->map(fn ($e) => "img/mascot.$e")->first(fn ($r) => file_exists(public_path($r))); @endphp
+        @if ($mascot)
+            <img src="{{ asset($mascot) }}" alt="" class="mx-auto h-28 w-28 rounded-full object-cover">
+        @else
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ok/10 text-2xl text-ok">✓</div>
+        @endif
         <h1 class="mt-6 text-2xl font-extrabold text-ink">Talebiniz alındı</h1>
 
         @if ($reference_no)
