@@ -1,0 +1,26 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Customer;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends Factory<Customer>
+ */
+class CustomerFactory extends Factory
+{
+    protected $model = Customer::class;
+
+    public function definition(): array
+    {
+        return [
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'tc_no' => (string) fake()->numerify('###########'),
+            'phone' => '05'.fake()->numerify('#########'),
+            'email' => fake()->unique()->safeEmail(),
+            'birth_date' => fake()->date(),
+        ];
+    }
+}
