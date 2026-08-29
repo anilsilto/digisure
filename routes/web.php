@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Panel\AuthController as PanelAuthController;
 use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
+use App\Http\Controllers\Panel\QuoteController as PanelQuoteController;
+use App\Http\Controllers\Panel\QuoteRequestController as PanelQuoteRequestController;
 use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\PageController;
 use App\Http\Controllers\Public\QuoteRequestController;
@@ -52,5 +54,11 @@ Route::prefix('panel')->name('panel.')->group(function () {
     Route::middleware('auth:panel')->group(function () {
         Route::post('cikis', [PanelAuthController::class, 'logout'])->name('logout');
         Route::get('/', [PanelDashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('teklifler', [PanelQuoteRequestController::class, 'index'])->name('quotes.index');
+        Route::get('teklifler/{quoteRequest}', [PanelQuoteRequestController::class, 'show'])->name('quotes.show');
+        Route::post('teklifler/{quoteRequest}/ata', [PanelQuoteRequestController::class, 'assign'])->name('quotes.assign');
+        Route::post('teklifler/{quoteRequest}/hazir', [PanelQuoteRequestController::class, 'markReady'])->name('quotes.ready');
+        Route::put('kotasyon/{quote}', [PanelQuoteController::class, 'update'])->name('quotes.update');
     });
 });

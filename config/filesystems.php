@@ -38,6 +38,20 @@ return [
             'report' => false,
         ],
 
+        'quotes' => [
+            'driver' => 'local',
+            'root' => storage_path('app/private/quotes'),
+            'visibility' => 'private',
+            'throw' => false,
+        ],
+
+        'policies' => [
+            'driver' => 'local',
+            'root' => storage_path('app/private/policies'),
+            'visibility' => 'private',
+            'throw' => false,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
