@@ -18,7 +18,7 @@
             @if ($teklifGorsel)
                 <div class="mx-auto w-full max-w-6xl overflow-hidden rounded-2xl shadow-2xl shadow-black/40 ring-1 ring-white/10">
                     <img src="{{ asset($teklifGorsel) }}" alt="Anlaşmalı şirketlerin tekliflerini karşılaştırın"
-                         class="h-56 w-full object-cover object-[50%_28%] sm:h-64 lg:h-72">
+                         class="h-72 w-full object-cover object-[50%_12%] sm:h-80 lg:h-[26rem]">
                 </div>
             @endif
 
