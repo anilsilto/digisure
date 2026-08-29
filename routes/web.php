@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Panel\AuthController as PanelAuthController;
+use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
 use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\PageController;
 use App\Http\Controllers\Public\QuoteRequestController;
@@ -33,3 +35,22 @@ Route::post('/teklif', [QuoteRequestController::class, 'store'])
     ->middleware('throttle:6,1')
     ->name('teklif.store');
 Route::get('/teklif/alindi', [QuoteRequestController::class, 'received'])->name('teklif.received');
+
+/*
+|--------------------------------------------------------------------------
+| Acente paneli
+|--------------------------------------------------------------------------
+*/
+Route::prefix('panel')->name('panel.')->group(function () {
+    Route::middleware('guest:panel')->group(function () {
+        Route::get('giris', [PanelAuthController::class, 'show'])->name('login');
+        Route::post('giris', [PanelAuthController::class, 'login'])
+            ->middleware('throttle:10,1')
+            ->name('login.attempt');
+    });
+
+    Route::middleware('auth:panel')->group(function () {
+        Route::post('cikis', [PanelAuthController::class, 'logout'])->name('logout');
+        Route::get('/', [PanelDashboardController::class, 'index'])->name('dashboard');
+    });
+});

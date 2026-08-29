@@ -42,6 +42,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        // Acente personeli paneli
+        'panel' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
     ],
 
     /*
