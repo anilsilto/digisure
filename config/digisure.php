@@ -9,6 +9,9 @@ return [
     | Teklif motorunun kotasyon açacağı şirketler. API entegrasyonu gelene
     | kadar hepsi ManualProvider ile "beklemede" satır üretir.
     */
+    // Platform markası (kullanıcıya görünen ad). Acente adı ayrı: 'agency.name'.
+    'brand' => env('DIGISURE_BRAND', 'Polisurance'),
+
     'enabled_insurers' => ['sompo', 'quick', 'hepiyi', 'doga'],
 
     'insurer_labels' => [

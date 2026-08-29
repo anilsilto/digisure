@@ -1,4 +1,4 @@
-# DigiSure
+# Polisurance
 
 Zafir Sigorta için dijital sigorta acentesi platformu — müşteriler trafik / kasko / sağlık
 sigortasında online teklif talebi oluşturur, acente personeli 4 anlaşmalı şirketin (Sompo,

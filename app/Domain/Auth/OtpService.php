@@ -58,7 +58,7 @@ class OtpService
             cache()->put('__test_last_otp', $code, 60);
         }
 
-        $this->sms->send($phone, "DigiSure doğrulama kodunuz: {$code}");
+        $this->sms->send($phone, config('digisure.brand').' doğrulama kodunuz: '.$code);
     }
 
     /**
