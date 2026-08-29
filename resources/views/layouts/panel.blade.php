@@ -22,6 +22,7 @@
                 <a href="/panel/teklifler" class="{{ request()->is('panel/teklifler*') ? $active : $item }}">Teklifler</a>
                 <a href="/panel/policeler" class="{{ request()->is('panel/policeler*') ? $active : $item }}">Poliçeler</a>
                 <a href="/panel/musteriler" class="{{ request()->is('panel/musteriler*') ? $active : $item }}">Müşteriler</a>
+                <a href="{{ route('panel.posts.index') }}" class="{{ request()->is('panel/blog*') ? $active : $item }}">Blog</a>
                 <a href="{{ route('panel.data-requests.index') }}" class="{{ request()->is('panel/veri-talepleri*') ? $active : $item }}">KVKK Talepleri</a>
 
                 @can('panel.admin')

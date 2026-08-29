@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', config('digisure.agency.name') . ' — ' . config('digisure.agency.slogan'))</title>
     <meta name="description" content="@yield('meta_description', config('digisure.agency.slogan'))">
+    <link rel="canonical" href="{{ url()->current() }}">
+    @yield('head')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-white text-ink antialiased flex flex-col">
@@ -12,6 +14,7 @@
     @php
         $navLinks = [
             ['/hesaplama', 'Hesaplama Araçları'],
+            ['/blog', 'Blog'],
             ['/hakkimizda', 'Hakkımızda'],
             ['/iletisim', 'İletişim'],
             ['/hesabim', 'Hesabım'],
@@ -105,6 +108,7 @@
                 <h3 class="mb-2 font-semibold text-ink">Kurumsal</h3>
                 <ul class="space-y-1">
                     <li><a href="{{ url('/hakkimizda') }}" class="hover:text-navy">Hakkımızda</a></li>
+                    <li><a href="{{ url('/blog') }}" class="hover:text-navy">Blog</a></li>
                     <li><a href="{{ url('/hesaplama') }}" class="hover:text-navy">Hesaplama Araçları</a></li>
                     <li><a href="{{ url('/kvkk-aydinlatma') }}" class="hover:text-navy">KVKK Aydınlatma Metni</a></li>
                     <li><a href="{{ url('/iletisim') }}" class="hover:text-navy">İletişim</a></li>

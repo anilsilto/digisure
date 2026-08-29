@@ -2,6 +2,21 @@
 
 [x-cloak] { display: none !important; }
 
+/* Blog yazı gövdesi (Markdown -> HTML) */
+.prose-blog { color: var(--color-muted); line-height: 1.75; }
+.prose-blog > * + * { margin-top: 1rem; }
+.prose-blog h2 { margin-top: 2rem; font-size: 1.5rem; font-weight: 700; color: var(--color-ink); }
+.prose-blog h3 { margin-top: 1.5rem; font-size: 1.2rem; font-weight: 600; color: var(--color-ink); }
+.prose-blog a { color: var(--color-accent-dark); text-decoration: underline; text-underline-offset: 2px; }
+.prose-blog strong { color: var(--color-ink); font-weight: 700; }
+.prose-blog ul { list-style: disc; padding-left: 1.5rem; }
+.prose-blog ol { list-style: decimal; padding-left: 1.5rem; }
+.prose-blog li + li { margin-top: 0.35rem; }
+.prose-blog blockquote { border-left: 3px solid var(--color-accent); padding-left: 1rem; color: var(--color-ink); font-style: italic; }
+.prose-blog img { border-radius: 0.75rem; }
+.prose-blog table { width: 100%; border-collapse: collapse; }
+.prose-blog th, .prose-blog td { border: 1px solid var(--color-line); padding: 0.5rem 0.75rem; text-align: left; }
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../views';

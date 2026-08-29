@@ -7,11 +7,14 @@ use App\Http\Controllers\Customer\ProfileController as CustomerProfileController
 use App\Http\Controllers\Customer\QuoteController as CustomerQuoteController;
 use App\Http\Controllers\Panel\AuthController as PanelAuthController;
 use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
+use App\Http\Controllers\Panel\BlogCategoryController as PanelBlogCategoryController;
 use App\Http\Controllers\Panel\DataRequestController as PanelDataRequestController;
+use App\Http\Controllers\Panel\PostController as PanelPostController;
 use App\Http\Controllers\Panel\PolicyController as PanelPolicyController;
 use App\Http\Controllers\Panel\ProductTypeController as PanelProductTypeController;
 use App\Http\Controllers\Panel\QuoteController as PanelQuoteController;
 use App\Http\Controllers\Panel\QuoteRequestController as PanelQuoteRequestController;
+use App\Http\Controllers\Public\BlogController;
 use App\Http\Controllers\Public\CalculatorController;
 use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\PageController;
@@ -60,6 +63,14 @@ Route::match(['get', 'post'], '/hesaplama/kasko-deger', [CalculatorController::c
 
 /*
 |--------------------------------------------------------------------------
+| Blog
+|--------------------------------------------------------------------------
+*/
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
+
+/*
+|--------------------------------------------------------------------------
 | Acente paneli
 |--------------------------------------------------------------------------
 */
@@ -89,6 +100,17 @@ Route::prefix('panel')->name('panel.')->group(function () {
 
         Route::get('veri-talepleri', [PanelDataRequestController::class, 'index'])->name('data-requests.index');
         Route::post('veri-talepleri/{dataRequest}/isle', [PanelDataRequestController::class, 'markHandled'])->name('data-requests.handle');
+
+        Route::get('blog', [PanelPostController::class, 'index'])->name('posts.index');
+        Route::get('blog/olustur', [PanelPostController::class, 'create'])->name('posts.create');
+        Route::post('blog', [PanelPostController::class, 'store'])->name('posts.store');
+        Route::get('blog/{post:id}/duzenle', [PanelPostController::class, 'edit'])->name('posts.edit');
+        Route::put('blog/{post:id}', [PanelPostController::class, 'update'])->name('posts.update');
+        Route::delete('blog/{post:id}', [PanelPostController::class, 'destroy'])->name('posts.destroy');
+        Route::get('blog-kategorileri', [PanelBlogCategoryController::class, 'index'])->name('blog-categories.index');
+        Route::post('blog-kategorileri', [PanelBlogCategoryController::class, 'store'])->name('blog-categories.store');
+        Route::put('blog-kategorileri/{blogCategory:id}', [PanelBlogCategoryController::class, 'update'])->name('blog-categories.update');
+        Route::delete('blog-kategorileri/{blogCategory:id}', [PanelBlogCategoryController::class, 'destroy'])->name('blog-categories.destroy');
 
         Route::middleware('can:panel.admin')->group(function () {
             Route::get('urunler', [PanelProductTypeController::class, 'index'])->name('products.index');
