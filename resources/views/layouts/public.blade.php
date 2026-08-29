@@ -11,8 +11,8 @@
 
     <header class="border-b border-line bg-white">
         <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-            <a href="{{ url('/') }}" class="flex items-center gap-2">
-                <x-brand.logo />
+            <a href="{{ url('/') }}" class="flex items-center">
+                <x-brand.logo class="h-11 md:h-12" />
             </a>
 
             <nav class="hidden items-center gap-6 text-sm font-medium text-muted md:flex">

@@ -10,7 +10,7 @@
 
 @if ($found)
     <img src="{{ asset($found) }}" alt="{{ $brand }}"
-         {{ $attributes->merge(['class' => $class . ' w-auto max-w-[200px] object-contain']) }}>
+         {{ $attributes->merge(['class' => $class . ' w-auto max-w-[320px] object-contain']) }}>
 @else
     <span {{ $attributes->merge(['class' => 'inline-flex items-baseline font-extrabold tracking-tight text-navy text-xl']) }}>
         {{ $brand }}<span class="text-accent">.</span>
