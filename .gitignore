@@ -1,0 +1,9 @@
+/vendor/
+/node_modules/
+/.env
+/public/build/
+/storage/*.key
+.phpunit.result.cache
+/public/storage
+/.idea
+/.vscode
