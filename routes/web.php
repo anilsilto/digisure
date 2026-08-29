@@ -3,6 +3,8 @@
 use App\Http\Controllers\Panel\AuthController as PanelAuthController;
 use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
 use App\Http\Controllers\Customer\AuthController as CustomerAuthController;
+use App\Http\Controllers\Customer\ProfileController as CustomerProfileController;
+use App\Http\Controllers\Customer\QuoteController as CustomerQuoteController;
 use App\Http\Controllers\Panel\QuoteController as PanelQuoteController;
 use App\Http\Controllers\Panel\QuoteRequestController as PanelQuoteRequestController;
 use App\Http\Controllers\Public\ContactController;
@@ -81,6 +83,13 @@ Route::prefix('hesabim')->name('customer.')->group(function () {
 
     Route::middleware('auth:customer')->group(function () {
         Route::post('cikis', [CustomerAuthController::class, 'logout'])->name('logout');
-        Route::get('/', fn () => view('customer.placeholder'))->name('dashboard'); // Task 9 değiştirecek
+        Route::get('/', fn () => redirect()->route('customer.quotes.index'))->name('dashboard');
+
+        Route::get('teklifler', [CustomerQuoteController::class, 'index'])->name('quotes.index');
+        Route::get('teklifler/{quoteRequest}', [CustomerQuoteController::class, 'show'])->name('quotes.show');
+        Route::post('teklifler/{quoteRequest}/sec/{quote}', [CustomerQuoteController::class, 'accept'])->name('quotes.accept');
+
+        Route::get('profil', [CustomerProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('profil', [CustomerProfileController::class, 'update'])->name('profile.update');
     });
 });
