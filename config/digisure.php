@@ -30,7 +30,9 @@ return [
         'name' => 'Zafir Sigorta',
         'email' => env('DIGISURE_AGENCY_EMAIL', 'info@sigortacimzafir.com'),
         'phone' => '0532 265 23 92',
+        'phone_e164' => '905322652392',   // tel: ve WhatsApp linkleri için
         'address' => 'Zübeyde Hanım Mah. Sebze Bahçeleri Cd. No:11, 06070 Altındağ / Ankara',
+        'experience_years' => 20,
         'licence' => 'SEDDK lisanslı sigorta brokeri',
         'slogan' => 'Geleceğinizi Güvence Altına Alıyoruz',
     ],

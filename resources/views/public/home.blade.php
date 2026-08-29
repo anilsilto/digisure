@@ -1,6 +1,7 @@
 @extends('layouts.public')
 
 @section('content')
+    {{-- ============ HERO ============ --}}
     <section class="relative overflow-hidden bg-navy text-white">
         <div class="pointer-events-none absolute left-1/2 top-1/3 hidden h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-3xl lg:block"></div>
 
@@ -37,26 +38,63 @@
         </div>
     </section>
 
+    {{-- ============ GÜVEN ŞERİDİ ============ --}}
+    <section class="border-b border-line bg-white">
+        <div class="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
+            @foreach ([
+                ['ic' => 'M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4z', 'b' => 'SEDDK lisanslı broker', 's' => 'Yetkili sigorta brokerliği'],
+                ['ic' => 'M12 8v4l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z', 'b' => config('digisure.agency.experience_years') . '+ yıl deneyim', 's' => 'Köklü acente ekibi'],
+                ['ic' => 'M4 7h16M4 12h16M4 17h10', 'b' => '4 anlaşmalı şirket', 's' => 'Sompo · Quick · HEPİYİ · Doğa'],
+                ['ic' => 'M18 8a6 6 0 00-12 0v5l-2 3h16l-2-3V8zM9 21h6', 'b' => '7/24 hasar & destek', 's' => 'Süreç boyunca yanınızdayız'],
+            ] as $item)
+                <div class="flex items-start gap-3">
+                    <span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent-dark">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="{{ $item['ic'] }}"/>
+                        </svg>
+                    </span>
+                    <div>
+                        <p class="font-semibold text-ink">{{ $item['b'] }}</p>
+                        <p class="text-sm text-muted">{{ $item['s'] }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    {{-- ============ ÜRÜNLER ============ --}}
     <section class="mx-auto max-w-6xl px-4 py-16">
-        <h2 class="text-2xl font-bold text-ink">Ürünlerimiz</h2>
+        <h2 class="text-2xl font-bold text-ink sm:text-3xl">Ürünlerimiz</h2>
+        <p class="mt-2 text-muted">İhtiyacınıza uygun ürünü seçin, birkaç dakikada teklif talebi oluşturun.</p>
+
         <div class="mt-8 grid gap-6 sm:grid-cols-3">
+            @php
+                $urunMeta = [
+                    'trafik' => ['Zorunlu trafik sigortanızı anlaşmalı şirketlerden en uygun fiyata bulun.', 'M3 13l2-5a3 3 0 013-2h8a3 3 0 013 2l2 5M5 17h14M6 17v2M18 17v2M7 13h10'],
+                    'kasko' => ['Aracınızı çarpma, çalınma, yangın ve doğal afetlere karşı kapsamlı güvenceye alın.', 'M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4zM9.5 12l1.8 1.8L15 10'],
+                    'saglik' => ['Tamamlayıcı ve özel sağlık planlarını ihtiyaçlarınıza göre karşılaştırın.', 'M12 21C7 17 4 13.5 4 9.5A4.5 4.5 0 0112 6a4.5 4.5 0 018 3.5C20 13.5 17 17 12 21z'],
+                ];
+            @endphp
             @foreach ($products as $product)
-                <div class="rounded-xl border border-line bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-lg font-semibold text-navy">{{ $product->name }}</h3>
-                    <p class="mt-2 text-sm text-muted">
-                        {{ $product->key === 'trafik' ? 'Zorunlu trafik sigortanızı en uygun fiyata bulun.' : '' }}
-                        {{ $product->key === 'kasko' ? 'Aracınızı kapsamlı teminatlarla güvence altına alın.' : '' }}
-                        {{ $product->key === 'saglik' ? 'Tamamlayıcı ve özel sağlık planlarını karşılaştırın.' : '' }}
-                    </p>
+                @php [$aciklama, $ikon] = $urunMeta[$product->key] ?? ['', '']; @endphp
+                <div class="flex flex-col rounded-xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                    <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-navy-tint text-navy">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="{{ $ikon }}"/>
+                        </svg>
+                    </span>
+                    <h3 class="mt-4 text-lg font-semibold text-navy">{{ $product->name }}</h3>
+                    <p class="mt-2 flex-1 text-sm text-muted">{{ $aciklama }}</p>
                     <a href="{{ route('urun.show', $product->key) }}"
-                       class="mt-4 inline-block text-sm font-semibold text-accent hover:text-accent-dark">
-                        Detay & Teklif Al →
+                       class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:text-accent-dark">
+                        Detay & Teklif Al <span aria-hidden="true">→</span>
                     </a>
                 </div>
             @endforeach
         </div>
     </section>
 
+    {{-- ============ NASIL ÇALIŞIR ============ --}}
     <section id="nasil-calisir" class="scroll-mt-16 bg-navy-tint">
         <div class="mx-auto max-w-6xl px-4 py-16 lg:py-20">
             <h2 class="text-2xl font-bold text-ink sm:text-3xl">Nasıl çalışır?</h2>
@@ -109,6 +147,86 @@
                 <a href="{{ url('/teklif') }}"
                    class="inline-block rounded-lg bg-accent px-7 py-3.5 font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-dark">
                     Hemen Teklif Al
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {{-- ============ ANLAŞMALI ŞİRKETLER ============ --}}
+    <section class="mx-auto max-w-6xl px-4 py-16">
+        <h2 class="text-2xl font-bold text-ink sm:text-3xl">Anlaşmalı sigorta şirketleri</h2>
+        <p class="mt-2 text-muted">Teklifleriniz bu şirketlerin ürünleri arasından karşılaştırılır.</p>
+        <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            @foreach (config('digisure.insurer_labels') as $label)
+                <div class="flex items-center justify-center rounded-xl border border-line bg-white px-4 py-6 text-center font-semibold text-navy shadow-sm">
+                    {{ $label }}
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    {{-- ============ NEDEN POLİSURANCE ============ --}}
+    <section class="bg-navy-tint">
+        <div class="mx-auto max-w-6xl px-4 py-16 lg:py-20">
+            <h2 class="text-2xl font-bold text-ink sm:text-3xl">Neden {{ config('digisure.brand') }}?</h2>
+            <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                @foreach ([
+                    ['Tarafsız karşılaştırma', 'Belirli bir şirketi değil, ihtiyacınıza ve bütçenize en uygun teklifi öne çıkarırız.'],
+                    ['Tek noktadan yönetim', 'Teklif talepleri, poliçeler ve yenileme hatırlatmaları aynı hesapta toplanır.'],
+                    ['Uzman acente desteği', config('digisure.agency.experience_years') . '+ yıllık ekibimiz poliçeleştirmeyi ve hasar sürecini üstlenir.'],
+                    ['KVKK güvencesi', 'Kimlik ve iletişim bilgileriniz şifreli saklanır; yalnızca teklif ve poliçe süreçleri için kullanılır.'],
+                ] as $i => [$baslik, $aciklama])
+                    <div class="rounded-xl bg-white p-6 shadow-sm">
+                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent-dark">{{ $i + 1 }}</span>
+                        <h3 class="mt-3 font-semibold text-navy">{{ $baslik }}</h3>
+                        <p class="mt-1 text-sm text-muted">{{ $aciklama }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- ============ SSS ============ --}}
+    <section class="mx-auto max-w-3xl px-4 py-16">
+        <h2 class="text-2xl font-bold text-ink sm:text-3xl">Sık sorulan sorular</h2>
+        <div class="mt-8 divide-y divide-line rounded-xl border border-line bg-white">
+            @foreach ([
+                ['Teklif almak ücretli mi?', 'Hayır. Teklif talebi oluşturmak ve teklifleri karşılaştırmak tamamen ücretsizdir; yalnızca satın aldığınız poliçenin primini ödersiniz.'],
+                ['Kaç şirketten teklif alıyorsunuz?', 'Anlaşmalı olduğumuz Sompo, Quick, HEPİYİ ve Doğa Sigorta’dan teklif toplarız. Yeni anlaşmalar eklendikçe kapsam genişler.'],
+                ['Teklifler ne zaman hazır olur?', 'Talebiniz genellikle aynı gün içinde yanıtlanır. Teklifleriniz hazır olduğunda size SMS ile bilgi veririz.'],
+                ['Bilgilerim güvende mi?', 'T.C. kimlik numaranız ve telefonunuz şifreli olarak saklanır. Verileriniz yalnızca teklif ve poliçe süreçleri için, KVKK kapsamında işlenir; pazarlama izni vermediğiniz sürece başka amaçla kullanılmaz.'],
+                ['Poliçemi nasıl görürüm?', '“Hesabım” bölümünden T.C. kimlik numaranız ve telefonunuzla giriş yapıp SMS ile gelen kodu girin. Poliçe belgenizi PDF olarak indirebilirsiniz.'],
+                ['Yenileme hatırlatması yapıyor musunuz?', 'Evet. Poliçenizin bitişine 30, 15 ve 7 gün kala SMS ve e-posta ile hatırlatma göndeririz.'],
+            ] as $i => [$soru, $cevap])
+                <div x-data="{ open: {{ $i === 0 ? 'true' : 'false' }} }" class="px-5">
+                    <button type="button" @click="open = !open"
+                            class="flex w-full items-center justify-between gap-4 py-4 text-left font-semibold text-ink">
+                        <span>{{ $soru }}</span>
+                        <svg class="h-5 w-5 shrink-0 text-accent transition" :class="open && 'rotate-45'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <p x-show="open" x-collapse class="pb-4 text-sm leading-relaxed text-muted">{{ $cevap }}</p>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    {{-- ============ KAPANIŞ CTA ============ --}}
+    <section class="bg-navy">
+        <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-14 text-center sm:flex-row sm:justify-between sm:text-left">
+            <div>
+                <h2 class="text-2xl font-bold text-white sm:text-3xl">Birkaç dakikada teklifinizi alın</h2>
+                <p class="mt-2 text-white/80">Formu doldurun, gerisini uzman ekibimiz halletsin.</p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="{{ url('/teklif') }}"
+                   class="rounded-lg bg-accent px-7 py-3.5 font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-dark">
+                    Hemen Teklif Al
+                </a>
+                <a href="tel:{{ config('digisure.agency.phone_e164') }}"
+                   class="font-semibold text-white underline-offset-4 hover:underline">
+                    {{ config('digisure.agency.phone') }}
                 </a>
             </div>
         </div>
