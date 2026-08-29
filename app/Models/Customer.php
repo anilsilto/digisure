@@ -4,14 +4,16 @@ namespace App\Models;
 
 use App\Support\Pii;
 use Database\Factories\CustomerFactory;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Customer extends Model implements Authenticatable
 {
     /** @use HasFactory<CustomerFactory> */
-    use HasFactory;
+    use AuthenticatableTrait, HasFactory;
 
     protected $fillable = [
         'first_name',

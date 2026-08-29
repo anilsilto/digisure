@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Panel\AuthController as PanelAuthController;
 use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
+use App\Http\Controllers\Customer\AuthController as CustomerAuthController;
 use App\Http\Controllers\Panel\QuoteController as PanelQuoteController;
 use App\Http\Controllers\Panel\QuoteRequestController as PanelQuoteRequestController;
 use App\Http\Controllers\Public\ContactController;
@@ -60,5 +61,26 @@ Route::prefix('panel')->name('panel.')->group(function () {
         Route::post('teklifler/{quoteRequest}/ata', [PanelQuoteRequestController::class, 'assign'])->name('quotes.assign');
         Route::post('teklifler/{quoteRequest}/hazir', [PanelQuoteRequestController::class, 'markReady'])->name('quotes.ready');
         Route::put('kotasyon/{quote}', [PanelQuoteController::class, 'update'])->name('quotes.update');
+    });
+});
+
+/*
+|--------------------------------------------------------------------------
+| Müşteri portalı
+|--------------------------------------------------------------------------
+*/
+Route::prefix('hesabim')->name('customer.')->group(function () {
+    Route::middleware('guest:customer')->group(function () {
+        Route::get('giris', [CustomerAuthController::class, 'showStart'])->name('login');
+        Route::post('giris', [CustomerAuthController::class, 'start'])
+            ->middleware('throttle:10,1')->name('login.start');
+        Route::get('dogrula', [CustomerAuthController::class, 'showVerify'])->name('verify');
+        Route::post('dogrula', [CustomerAuthController::class, 'verify'])
+            ->middleware('throttle:10,1')->name('verify.attempt');
+    });
+
+    Route::middleware('auth:customer')->group(function () {
+        Route::post('cikis', [CustomerAuthController::class, 'logout'])->name('logout');
+        Route::get('/', fn () => view('customer.placeholder'))->name('dashboard'); // Task 9 değiştirecek
     });
 });
