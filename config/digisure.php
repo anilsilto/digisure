@@ -49,6 +49,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Müşteri OTP
+    |--------------------------------------------------------------------------
+    | Aynı telefona saatte kaç kod gönderilebilir. Local'de test kolaylığı için yüksek.
+    */
+    'otp' => [
+        'max_sends_per_hour' => (int) env('DIGISURE_OTP_MAX_SENDS_PER_HOUR', env('APP_ENV') === 'local' ? 30 : 3),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Yenileme hatırlatmaları
     |--------------------------------------------------------------------------
     | Poliçe bitişinden kaç gün önce hatırlatma üretilecek.

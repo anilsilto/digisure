@@ -12,11 +12,14 @@ class OtpService
 {
     private const TTL_MINUTES = 3;
 
-    private const MAX_SENDS_PER_HOUR = 3;
-
     private const MAX_ATTEMPTS = 5;
 
     public function __construct(private readonly SmsSender $sms) {}
+
+    private function maxSendsPerHour(): int
+    {
+        return (int) config('digisure.otp.max_sends_per_hour', 3);
+    }
 
     /**
      * TC + telefon eşleşen müşteri için OTP üretir ve SMS gönderir.
@@ -29,7 +32,7 @@ class OtpService
             ->where('created_at', '>=', now()->subHour())
             ->count();
 
-        if ($recentSends >= self::MAX_SENDS_PER_HOUR) {
+        if ($recentSends >= $this->maxSendsPerHour()) {
             throw ValidationException::withMessages([
                 'telefon' => 'Çok fazla kod talebi. Lütfen bir süre sonra tekrar deneyin.',
             ]);
