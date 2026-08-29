@@ -2,42 +2,35 @@
 
 @section('content')
     <section class="relative overflow-hidden bg-navy text-white">
-        {{-- baykuşun arkasında yumuşak turkuaz ışıma --}}
-        <div class="pointer-events-none absolute -right-24 top-1/2 hidden h-[36rem] w-[36rem] -translate-y-1/2 rounded-full bg-accent/20 blur-3xl lg:block"></div>
+        <div class="pointer-events-none absolute left-1/2 top-1/3 hidden h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-3xl lg:block"></div>
 
-        <div class="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-4 py-16 lg:flex-row lg:justify-between lg:py-24">
-            <div class="max-w-xl text-center lg:text-left">
-                <div class="mb-4 flex items-center justify-center gap-1.5 lg:justify-start">
-                    <span class="h-2 w-2 rounded-full bg-accent"></span>
-                    <span class="h-2 w-2 rounded-full bg-accent/70"></span>
-                    <span class="h-2 w-2 rounded-full bg-accent/40"></span>
-                    <span class="ml-2 text-sm font-semibold uppercase tracking-wider text-white/70">{{ config('digisure.agency.name') }}</span>
-                </div>
-                <h1 class="text-4xl font-extrabold leading-tight sm:text-5xl">
-                    {{ config('digisure.agency.slogan') }}
-                </h1>
-                <p class="mt-4 text-lg text-white/80">
-                    Trafik, kasko ve sağlık sigortasında anlaşmalı şirketlerin tekliflerini tek ekranda karşılaştırın, uzman ekiple poliçenizi tamamlayın.
-                </p>
-                <div class="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
-                    <a href="{{ url('/teklif') }}"
-                       class="rounded-lg bg-accent px-7 py-3.5 font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-dark">
-                        Hemen Teklif Al
-                    </a>
-                    <a href="#nasil-calisir" class="text-sm font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline">
-                        Nasıl çalışır?
-                    </a>
-                </div>
+        <div class="relative mx-auto max-w-5xl px-4 py-14 text-center lg:py-20">
+            <h1 class="sr-only">{{ config('digisure.agency.name') }} — {{ config('digisure.agency.slogan') }}</h1>
+
+            <div class="mb-5 flex items-center justify-center gap-1.5">
+                <span class="h-2 w-2 rounded-full bg-accent"></span>
+                <span class="h-2 w-2 rounded-full bg-accent/70"></span>
+                <span class="h-2 w-2 rounded-full bg-accent/40"></span>
+                <span class="ml-2 text-sm font-semibold uppercase tracking-wider text-white/70">{{ config('digisure.agency.name') }}</span>
             </div>
 
-            <div class="shrink-0">
-                @php $mascot = collect(['png', 'webp'])->map(fn ($e) => "img/mascot.$e")->first(fn ($r) => file_exists(public_path($r))); @endphp
-                @if ($mascot)
-                    <img src="{{ asset($mascot) }}" alt="{{ config('digisure.brand') }} maskotu"
-                         class="h-64 w-64 object-contain drop-shadow-[0_18px_50px_rgba(44,184,218,0.45)] sm:h-72 sm:w-72 lg:h-[22rem] lg:w-[22rem]">
-                @else
-                    <x-brand.hero-mark class="h-64 w-64 sm:h-72 sm:w-72 lg:h-80 lg:w-80" />
-                @endif
+            @php $teklifGorsel = collect(['png', 'webp', 'jpg'])->map(fn ($e) => "img/teklif.$e")->first(fn ($r) => file_exists(public_path($r))); @endphp
+            @if ($teklifGorsel)
+                <img src="{{ asset($teklifGorsel) }}" alt="Anlaşmalı şirketlerin tekliflerini karşılaştırın"
+                     class="mx-auto w-full max-w-3xl rounded-2xl shadow-2xl shadow-black/40 ring-1 ring-white/10">
+            @endif
+
+            <p class="mx-auto mt-8 max-w-2xl text-lg text-white/80">
+                Trafik, kasko ve sağlık sigortasında anlaşmalı şirketlerin tekliflerini tek ekranda karşılaştırın, uzman ekiple poliçenizi tamamlayın.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <a href="{{ url('/teklif') }}"
+                   class="rounded-lg bg-accent px-7 py-3.5 font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-dark">
+                    Hemen Teklif Al
+                </a>
+                <a href="#nasil-calisir" class="text-sm font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline">
+                    Nasıl çalışır?
+                </a>
             </div>
         </div>
     </section>
