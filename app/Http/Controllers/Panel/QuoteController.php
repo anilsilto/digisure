@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
 use App\Models\Quote;
+use App\Support\ActivityLogger;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,8 @@ class QuoteController extends Controller
                 : $quote->file_path,
         ]);
 
-        return back()->with('status', config("digisure.insurer_labels.{$quote->insurer}", $quote->insurer) . ' teklifi kaydedildi.');
+        ActivityLogger::log('kotasyon.girildi', $quote, ['insurer' => $quote->insurer, 'premium' => $quote->premium]);
+
+        return back()->with('status', config("digisure.insurer_labels.{$quote->insurer}", $quote->insurer).' teklifi kaydedildi.');
     }
 }

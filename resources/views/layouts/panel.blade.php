@@ -22,10 +22,11 @@
                 <a href="/panel/teklifler" class="{{ request()->is('panel/teklifler*') ? $active : $item }}">Teklifler</a>
                 <a href="/panel/policeler" class="{{ request()->is('panel/policeler*') ? $active : $item }}">Poliçeler</a>
                 <a href="/panel/musteriler" class="{{ request()->is('panel/musteriler*') ? $active : $item }}">Müşteriler</a>
+                <a href="{{ route('panel.data-requests.index') }}" class="{{ request()->is('panel/veri-talepleri*') ? $active : $item }}">KVKK Talepleri</a>
 
                 @can('panel.admin')
                     <p class="px-3 pt-4 pb-1 text-xs font-semibold uppercase tracking-wider text-muted/70">Yönetim</p>
-                    <a href="/panel/urunler" class="{{ request()->is('panel/urunler*') ? $active : $item }}">Ürünler</a>
+                    <a href="{{ route('panel.products.index') }}" class="{{ request()->is('panel/urunler*') ? $active : $item }}">Ürünler</a>
                     <a href="/panel/kullanicilar" class="{{ request()->is('panel/kullanicilar*') ? $active : $item }}">Kullanıcılar</a>
                     <a href="/panel/ayarlar" class="{{ request()->is('panel/ayarlar*') ? $active : $item }}">Ayarlar</a>
                 @endcan

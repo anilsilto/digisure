@@ -13,9 +13,7 @@ use Illuminate\Http\Request;
 
 class PolicyController extends Controller
 {
-    public function __construct(private readonly PolicyService $policies)
-    {
-    }
+    public function __construct(private readonly PolicyService $policies) {}
 
     public function index(Request $request): View
     {
@@ -52,7 +50,7 @@ class PolicyController extends Controller
     {
         $data = $request->validate([
             'urun' => ['required', 'exists:product_types,key'],
-            'insurer' => ['required', 'string', 'in:' . implode(',', array_keys(config('digisure.insurer_labels')))],
+            'insurer' => ['required', 'string', 'in:'.implode(',', array_keys(config('digisure.insurer_labels')))],
             'policy_no' => ['required', 'string', 'max:255'],
             'premium' => ['required', 'numeric', 'min:0'],
             'start_date' => ['required', 'date'],

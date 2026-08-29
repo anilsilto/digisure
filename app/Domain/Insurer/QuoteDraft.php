@@ -18,6 +18,5 @@ final class QuoteDraft
         public readonly ?array $coverageSummary = null,
         public readonly ?int $policyPeriodMonths = null,
         public readonly string $origin = 'manuel',
-    ) {
-    }
+    ) {}
 }

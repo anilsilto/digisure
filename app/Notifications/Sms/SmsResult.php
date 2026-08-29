@@ -8,6 +8,5 @@ final class SmsResult
         public readonly bool $ok,
         public readonly ?string $providerId = null,
         public readonly ?string $raw = null,
-    ) {
-    }
+    ) {}
 }

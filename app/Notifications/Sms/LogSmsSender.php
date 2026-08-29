@@ -18,6 +18,6 @@ class LogSmsSender implements SmsSender
             'message' => $message,
         ]);
 
-        return new SmsResult(ok: true, providerId: 'log-' . Str::random(10), raw: 'logged');
+        return new SmsResult(ok: true, providerId: 'log-'.Str::random(10), raw: 'logged');
     }
 }

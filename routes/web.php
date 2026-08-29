@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\Panel\AuthController as PanelAuthController;
-use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
 use App\Http\Controllers\Customer\AuthController as CustomerAuthController;
+use App\Http\Controllers\Customer\DataRequestController as CustomerDataRequestController;
 use App\Http\Controllers\Customer\PolicyController as CustomerPolicyController;
 use App\Http\Controllers\Customer\ProfileController as CustomerProfileController;
 use App\Http\Controllers\Customer\QuoteController as CustomerQuoteController;
+use App\Http\Controllers\Panel\AuthController as PanelAuthController;
+use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
+use App\Http\Controllers\Panel\DataRequestController as PanelDataRequestController;
 use App\Http\Controllers\Panel\PolicyController as PanelPolicyController;
+use App\Http\Controllers\Panel\ProductTypeController as PanelProductTypeController;
 use App\Http\Controllers\Panel\QuoteController as PanelQuoteController;
 use App\Http\Controllers\Panel\QuoteRequestController as PanelQuoteRequestController;
 use App\Http\Controllers\Public\CalculatorController;
@@ -83,6 +86,15 @@ Route::prefix('panel')->name('panel.')->group(function () {
         Route::get('policeler/olustur', [PanelPolicyController::class, 'create'])->name('policies.create');
         Route::post('policeler', [PanelPolicyController::class, 'store'])->name('policies.store');
         Route::get('policeler/{policy}', [PanelPolicyController::class, 'show'])->name('policies.show');
+
+        Route::get('veri-talepleri', [PanelDataRequestController::class, 'index'])->name('data-requests.index');
+        Route::post('veri-talepleri/{dataRequest}/isle', [PanelDataRequestController::class, 'markHandled'])->name('data-requests.handle');
+
+        Route::middleware('can:panel.admin')->group(function () {
+            Route::get('urunler', [PanelProductTypeController::class, 'index'])->name('products.index');
+            Route::get('urunler/{productType:id}/duzenle', [PanelProductTypeController::class, 'edit'])->name('products.edit');
+            Route::put('urunler/{productType:id}', [PanelProductTypeController::class, 'update'])->name('products.update');
+        });
     });
 });
 
@@ -114,5 +126,7 @@ Route::prefix('hesabim')->name('customer.')->group(function () {
 
         Route::get('profil', [CustomerProfileController::class, 'edit'])->name('profile.edit');
         Route::put('profil', [CustomerProfileController::class, 'update'])->name('profile.update');
+
+        Route::post('veri-talebi', [CustomerDataRequestController::class, 'store'])->name('data-request.store');
     });
 });

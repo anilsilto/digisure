@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ProductType;
 use App\Models\QuoteRequest;
 use App\Models\User;
+use App\Support\DynamicForm;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -61,7 +62,7 @@ class QuoteRequestController extends Controller
 
         return view('panel.quotes.show', [
             'quoteRequest' => $quoteRequest,
-            'labels' => \App\Support\DynamicForm::labels($quoteRequest->productType),
+            'labels' => DynamicForm::labels($quoteRequest->productType),
             'insurerLabels' => config('digisure.insurer_labels'),
             'staff' => User::where('is_active', true)->orderBy('name')->get(),
             'canReveal' => (bool) $this->currentUser()?->isAdmin(),

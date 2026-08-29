@@ -12,13 +12,11 @@ use Illuminate\Validation\ValidationException;
 
 class QuoteRequestService
 {
-    public function __construct(private readonly QuoteProviderManager $providers)
-    {
-    }
+    public function __construct(private readonly QuoteProviderManager $providers) {}
 
     /**
-     * @param  array<string, string|null>  $fields          field_key => value
-     * @param  array<string, mixed>        $customerAttrs    tc_no, first_name, last_name, phone, email
+     * @param  array<string, string|null>  $fields  field_key => value
+     * @param  array<string, mixed>  $customerAttrs  tc_no, first_name, last_name, phone, email
      */
     public function create(
         ProductType $product,

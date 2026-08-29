@@ -17,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(QuoteProviderManager::class);
 
         $this->app->bind(SmsSender::class, fn () => config('digisure.sms.driver') === 'netgsm'
-            ? new NetgsmSmsSender()
-            : new LogSmsSender());
+            ? new NetgsmSmsSender
+            : new LogSmsSender);
     }
 
     public function boot(): void

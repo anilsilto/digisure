@@ -24,7 +24,7 @@ class DynamicForm
             $set[] = match ($type) {
                 'date' => 'date',
                 'number' => 'numeric',
-                'select' => 'in:' . implode(',', $field['options'] ?? []),
+                'select' => 'in:'.implode(',', $field['options'] ?? []),
                 default => 'string',
             };
 
@@ -32,7 +32,7 @@ class DynamicForm
                 $set[] = 'max:255';
             }
 
-            $rules['fields.' . $field['name']] = $set;
+            $rules['fields.'.$field['name']] = $set;
         }
 
         return $rules;

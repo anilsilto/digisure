@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Policy;
 use App\Models\ProductType;
 use App\Models\QuoteRequest;
+use App\Support\ActivityLogger;
 use DomainException;
 use Illuminate\Support\Facades\DB;
 
@@ -43,6 +44,8 @@ class PolicyService
 
             $this->scheduleReminders($policy);
 
+            ActivityLogger::log('police.olusturuldu', $policy, ['kaynak' => 'teklif', 'ref' => $request->reference_no]);
+
             return $policy;
         });
     }
@@ -78,6 +81,8 @@ class PolicyService
             ]);
 
             $this->scheduleReminders($policy);
+
+            ActivityLogger::log('police.olusturuldu', $policy, ['kaynak' => 'elle']);
 
             return $policy;
         });

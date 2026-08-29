@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\ProductType;
 use App\Models\QuoteRequest;
 use Database\Seeders\ProductTypeSeeder;
 

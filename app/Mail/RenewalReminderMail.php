@@ -14,13 +14,11 @@ class RenewalReminderMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public Policy $policy)
-    {
-    }
+    public function __construct(public Policy $policy) {}
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Poliçe Yenileme Hatırlatması — ' . config('digisure.agency.name'));
+        return new Envelope(subject: 'Poliçe Yenileme Hatırlatması — '.config('digisure.agency.name'));
     }
 
     public function content(): Content

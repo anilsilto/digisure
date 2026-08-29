@@ -1,5 +1,6 @@
 <?php
 
+use App\Notifications\Sms\LogSmsSender;
 use App\Notifications\Sms\SmsSender;
 use Illuminate\Support\Facades\Http;
 
@@ -21,5 +22,5 @@ it('flags a Netgsm error response', function () {
 });
 
 it('uses the log driver by default', function () {
-    expect(app(SmsSender::class))->toBeInstanceOf(\App\Notifications\Sms\LogSmsSender::class);
+    expect(app(SmsSender::class))->toBeInstanceOf(LogSmsSender::class);
 });

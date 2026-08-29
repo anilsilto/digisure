@@ -21,8 +21,7 @@ class SendSmsJob implements ShouldQueue
         public string $phone,
         public string $message,
         public ?int $notificationLogId = null,
-    ) {
-    }
+    ) {}
 
     public function handle(SmsSender $sms): void
     {

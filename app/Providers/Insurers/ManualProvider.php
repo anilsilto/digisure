@@ -13,9 +13,7 @@ use App\Models\QuoteRequest;
  */
 class ManualProvider implements QuoteProvider
 {
-    public function __construct(private readonly string $insurerKey)
-    {
-    }
+    public function __construct(private readonly string $insurerKey) {}
 
     public function key(): string
     {

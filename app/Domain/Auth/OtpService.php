@@ -11,12 +11,12 @@ use Illuminate\Validation\ValidationException;
 class OtpService
 {
     private const TTL_MINUTES = 3;
+
     private const MAX_SENDS_PER_HOUR = 3;
+
     private const MAX_ATTEMPTS = 5;
 
-    public function __construct(private readonly SmsSender $sms)
-    {
-    }
+    public function __construct(private readonly SmsSender $sms) {}
 
     /**
      * TC + telefon eşleşen müşteri için OTP üretir ve SMS gönderir.

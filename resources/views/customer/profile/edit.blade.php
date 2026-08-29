@@ -37,4 +37,22 @@
             </button>
         </form>
     </div>
+
+    <div class="mt-6 rounded-xl border border-line bg-white p-6">
+        <h2 class="text-sm font-semibold text-ink">KVKK Hakları</h2>
+        <p class="mt-1 text-xs text-muted">Kişisel verilerinizin bir kopyasını isteyebilir veya silinmesini talep edebilirsiniz.</p>
+        <div class="mt-3 flex gap-3">
+            <form method="POST" action="{{ route('customer.data-request.store') }}">
+                @csrf
+                <input type="hidden" name="type" value="indir">
+                <button class="rounded-lg border border-line px-4 py-2 text-sm font-medium text-navy hover:bg-navy-tint">Verilerimi İndir</button>
+            </form>
+            <form method="POST" action="{{ route('customer.data-request.store') }}"
+                  onsubmit="return confirm('Verilerinizin silinmesi talebini onaylıyor musunuz?');">
+                @csrf
+                <input type="hidden" name="type" value="sil">
+                <button class="rounded-lg border border-zred/40 px-4 py-2 text-sm font-medium text-zred hover:bg-zred-tint">Silme Talebi</button>
+            </form>
+        </div>
+    </div>
 @endsection

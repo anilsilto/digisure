@@ -35,7 +35,7 @@ class Pii
             return str_repeat('*', $len);
         }
 
-        return substr($value, 0, 3) . str_repeat('*', $len - 5) . substr($value, -2);
+        return substr($value, 0, 3).str_repeat('*', $len - 5).substr($value, -2);
     }
 
     private static function key(): string

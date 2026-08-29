@@ -35,7 +35,7 @@ function makeQuoteRequest(string $productKey = 'trafik'): QuoteRequest
             'tc_no' => (string) fake()->numerify('###########'),
             'first_name' => 'Test',
             'last_name' => 'Musteri',
-            'phone' => '05' . fake()->numerify('#########'),
+            'phone' => '05'.fake()->numerify('#########'),
             'email' => fake()->unique()->safeEmail(),
         ],
         source: 'site',

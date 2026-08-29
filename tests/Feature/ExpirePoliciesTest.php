@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Policy;
-use App\Models\QuoteRequest;
 use App\Models\QuoteRequestField;
 
 it('expires policies past end_date', function () {

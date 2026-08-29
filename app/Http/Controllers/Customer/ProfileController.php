@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Support\ActivityLogger;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ class ProfileController extends Controller
             ? ($customer->marketing_consent_at ?? now())
             : null;
         $customer->save();
+
+        ActivityLogger::log('musteri.profil_guncellendi', $customer);
 
         return back()->with('status', 'Bilgileriniz güncellendi.');
     }

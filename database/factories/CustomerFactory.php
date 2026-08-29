@@ -18,7 +18,7 @@ class CustomerFactory extends Factory
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'tc_no' => (string) fake()->numerify('###########'),
-            'phone' => '05' . fake()->numerify('#########'),
+            'phone' => '05'.fake()->numerify('#########'),
             'email' => fake()->unique()->safeEmail(),
             'birth_date' => fake()->date(),
         ];

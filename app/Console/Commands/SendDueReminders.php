@@ -55,7 +55,7 @@ class SendDueReminders extends Command
             $reminder->update(['status' => 'gonderildi', 'sent_at' => now()]);
         }
 
-        $this->info($due->count() . ' hatırlatma işlendi.');
+        $this->info($due->count().' hatırlatma işlendi.');
 
         return self::SUCCESS;
     }
