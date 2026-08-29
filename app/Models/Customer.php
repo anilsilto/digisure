@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Customer extends Model implements Authenticatable
 {
@@ -50,6 +51,16 @@ class Customer extends Model implements Authenticatable
                 $customer->phone_hash = Pii::hash($customer->phone);
             }
         });
+    }
+
+    public function policies(): HasMany
+    {
+        return $this->hasMany(Policy::class);
+    }
+
+    public function quoteRequests(): HasMany
+    {
+        return $this->hasMany(QuoteRequest::class);
     }
 
     public function scopeWhereTc(Builder $query, string $tc): Builder

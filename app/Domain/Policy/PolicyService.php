@@ -85,9 +85,6 @@ class PolicyService
 
     private function scheduleReminders(Policy $policy): void
     {
-        // Task 11 RenewalReminderService'i ekleyince koşulsuz çağrılacak.
-        if (class_exists(RenewalReminderService::class)) {
-            app(RenewalReminderService::class)->scheduleFor($policy);
-        }
+        app(RenewalReminderService::class)->scheduleFor($policy);
     }
 }
