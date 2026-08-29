@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views';
+
+@theme {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+    /* Zafir kurumsal paleti */
+    --color-navy: #1b2e6e;
+    --color-navy-dark: #1a2340;
+    --color-zred: #c41e2a;
+    --color-zred-dark: #a01820;
+    --color-zred-tint: #fdf0f1;
+    --color-navy-tint: #f4f6fb;
+    --color-navy-tint-2: #eef1f8;
+    --color-line: #eaecf0;
+    --color-line-2: #d6dce8;
+    --color-ink: #1a2340;
+    --color-muted: #5a6a7a;
+    --color-gold: #e8a020;
+    --color-ok: #0f6e56;
+}
