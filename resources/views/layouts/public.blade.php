@@ -31,7 +31,7 @@
             </nav>
 
             <a href="{{ url('/teklif') }}"
-               class="rounded-lg bg-zred px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-zred-dark">
+               class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-accent-dark">
                 Teklif Al
             </a>
         </div>

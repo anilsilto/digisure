@@ -13,7 +13,7 @@
                 <label class="block text-sm font-medium text-ink">Mesafe (km)</label>
                 <input type="number" step="0.1" name="mesafe" value="{{ old('mesafe') }}" required
                        class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">
-                @error('mesafe') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                @error('mesafe') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
             </div>
             <div>
                 <label class="block text-sm font-medium text-ink">Tüketim (L/100km) — boşsa varsayılan</label>

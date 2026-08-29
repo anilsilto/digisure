@@ -22,7 +22,7 @@
                     @if ($policy->file_path)
                         <a href="{{ route('customer.policies.download', $policy) }}" class="font-medium text-navy hover:underline">PDF indir</a>
                     @endif
-                    <a href="{{ url('/teklif?urun=' . $policy->productType->key) }}" class="font-medium text-zred hover:underline">Yenile</a>
+                    <a href="{{ url('/teklif?urun=' . $policy->productType->key) }}" class="font-medium text-accent hover:underline">Yenile</a>
                 </div>
             </div>
         @empty

@@ -15,7 +15,7 @@
                 <a href="/hesabim/policeler" class="{{ request()->is('hesabim/policeler*') ? 'text-navy' : 'hover:text-navy' }}">Poliçelerim</a>
                 <a href="{{ route('customer.profile.edit') }}" class="{{ request()->routeIs('customer.profile.*') ? 'text-navy' : 'hover:text-navy' }}">Profilim</a>
                 <form method="POST" action="{{ route('customer.logout') }}">@csrf
-                    <button class="hover:text-zred">Çıkış</button>
+                    <button class="hover:text-danger">Çıkış</button>
                 </form>
             </nav>
         </div>

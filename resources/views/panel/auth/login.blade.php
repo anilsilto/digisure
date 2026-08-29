@@ -12,7 +12,7 @@
         <h1 class="mt-4 text-xl font-bold text-ink">Acente Paneli Girişi</h1>
 
         @if ($errors->any())
-            <div class="mt-4 rounded-lg border border-zred/30 bg-zred-tint px-3 py-2 text-sm text-zred-dark">
+            <div class="mt-4 rounded-lg border border-danger/30 bg-danger-tint px-3 py-2 text-sm text-danger">
                 {{ $errors->first() }}
             </div>
         @endif

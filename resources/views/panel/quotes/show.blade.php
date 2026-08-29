@@ -65,7 +65,7 @@
                     @csrf
                     <h3 class="font-semibold text-ok">Poliçeye Çevir</h3>
                     <p class="mt-1 text-xs text-muted">Kabul edilen teklif: {{ $insurerLabels[$quoteRequest->acceptedQuote?->insurer] ?? '—' }}</p>
-                    @error('policelestir') <p class="mt-1 text-sm text-zred">{{ $message }}</p> @enderror
+                    @error('policelestir') <p class="mt-1 text-sm text-danger">{{ $message }}</p> @enderror
                     <div class="mt-3 grid gap-3 sm:grid-cols-3">
                         <label class="text-sm">Poliçe No <input type="text" name="policy_no" class="mt-1 w-full rounded-lg border border-line px-2 py-1.5"></label>
                         <label class="text-sm">Başlangıç <input type="date" name="start_date" class="mt-1 w-full rounded-lg border border-line px-2 py-1.5"></label>
@@ -83,13 +83,13 @@
                 <form method="POST" action="{{ route('panel.quotes.ready', $quoteRequest) }}">
                     @csrf
                     <button type="submit" @disabled(! $verildiVar || $quoteRequest->status !== 'yeni')
-                            class="rounded-lg bg-zred px-4 py-2 text-sm font-semibold text-white transition hover:bg-zred-dark disabled:cursor-not-allowed disabled:opacity-40">
+                            class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-40">
                         Teklifleri Hazırla
                     </button>
                 </form>
             </div>
 
-            @error('hazir') <p class="text-sm text-zred">{{ $message }}</p> @enderror
+            @error('hazir') <p class="text-sm text-danger">{{ $message }}</p> @enderror
 
             @foreach ($quoteRequest->quotes as $quote)
                 <form method="POST" action="{{ route('panel.quotes.update', $quote) }}" enctype="multipart/form-data"

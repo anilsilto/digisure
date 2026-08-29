@@ -27,28 +27,28 @@
                     <label class="block text-sm font-medium text-ink">Ad Soyad</label>
                     <input type="text" name="name" value="{{ old('name') }}" required
                            class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">
-                    @error('name') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                    @error('name') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-ink">Telefon</label>
                     <input type="text" name="phone" value="{{ old('phone') }}" required
                            class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">
-                    @error('phone') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                    @error('phone') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-ink">E-posta (opsiyonel)</label>
                     <input type="email" name="email" value="{{ old('email') }}"
                            class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">
-                    @error('email') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                    @error('email') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-ink">Mesajınız</label>
                     <textarea name="message" rows="4" required
                               class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">{{ old('message') }}</textarea>
-                    @error('message') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                    @error('message') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
                 </div>
                 <button type="submit"
-                        class="rounded-lg bg-zred px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zred-dark">
+                        class="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark">
                     Gönder
                 </button>
             </form>

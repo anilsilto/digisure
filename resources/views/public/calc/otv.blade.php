@@ -13,13 +13,13 @@
                 <label class="block text-sm font-medium text-ink">Motor Hacmi (cc)</label>
                 <input type="number" name="motor_cc" value="{{ old('motor_cc') }}" required
                        class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">
-                @error('motor_cc') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                @error('motor_cc') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
             </div>
             <div>
                 <label class="block text-sm font-medium text-ink">Matrah (KDV hariç fiyat, TL)</label>
                 <input type="number" step="0.01" name="matrah" value="{{ old('matrah') }}" required
                        class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">
-                @error('matrah') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                @error('matrah') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
             </div>
             <button class="rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-dark">Hesapla</button>
         </form>
@@ -32,7 +32,7 @@
                     <p>ÖTV dahil: <strong class="text-navy">{{ number_format($result['total'], 2, ',', '.') }} TL</strong></p>
                     <p class="mt-1 text-xs text-muted">2026 taslak dilimler; KDV ayrıca uygulanır.</p>
                 @else
-                    <p class="text-zred">{{ $result }}</p>
+                    <p class="text-accent">{{ $result }}</p>
                 @endif
             </div>
         @endif

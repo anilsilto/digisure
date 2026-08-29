@@ -17,7 +17,7 @@
                 <label class="block text-sm font-medium text-ink">Referans Araç Değeri (TL)</label>
                 <input type="number" step="0.01" name="referans_deger" value="{{ old('referans_deger') }}" required
                        class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">
-                @error('referans_deger') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                @error('referans_deger') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
             </div>
             <div>
                 <label class="block text-sm font-medium text-ink">Kasko Oranı (%) — boşsa varsayılan</label>

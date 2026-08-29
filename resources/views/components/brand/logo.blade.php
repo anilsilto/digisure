@@ -9,6 +9,6 @@
     <img src="{{ asset('img/logo.png') }}" alt="{{ $brand }}" {{ $attributes->merge(['class' => $class]) }}>
 @else
     <span {{ $attributes->merge(['class' => 'inline-flex items-baseline font-extrabold tracking-tight text-navy text-xl']) }}>
-        {{ $brand }}<span class="text-zred">.</span>
+        {{ $brand }}<span class="text-accent">.</span>
     </span>
 @endif

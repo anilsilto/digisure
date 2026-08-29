@@ -17,7 +17,7 @@
             </div>
             <button class="rounded-lg bg-navy px-4 py-2 font-medium text-white">Filtrele</button>
         </form>
-        <a href="{{ route('panel.policies.create') }}" class="rounded-lg bg-zred px-4 py-2 text-sm font-semibold text-white hover:bg-zred-dark">
+        <a href="{{ route('panel.policies.create') }}" class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-dark">
             + Elle Poliçe Ekle
         </a>
     </div>

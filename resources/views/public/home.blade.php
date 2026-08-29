@@ -11,7 +11,7 @@
                 Trafik, kasko ve sağlık sigortasında birden fazla şirketin teklifini tek ekranda karşılaştırın.
             </p>
             <a href="{{ url('/teklif') }}"
-               class="mt-8 inline-block rounded-lg bg-zred px-6 py-3 font-semibold text-white shadow transition hover:bg-zred-dark">
+               class="mt-8 inline-block rounded-lg bg-accent px-6 py-3 font-semibold text-white shadow transition hover:bg-accent-dark">
                 Hemen Teklif Al
             </a>
         </div>
@@ -29,7 +29,7 @@
                         {{ $product->key === 'saglik' ? 'Tamamlayıcı ve özel sağlık planlarını karşılaştırın.' : '' }}
                     </p>
                     <a href="{{ route('urun.show', $product->key) }}"
-                       class="mt-4 inline-block text-sm font-semibold text-zred hover:text-zred-dark">
+                       class="mt-4 inline-block text-sm font-semibold text-accent hover:text-accent-dark">
                         Detay & Teklif Al →
                     </a>
                 </div>
@@ -42,17 +42,17 @@
             <h2 class="text-2xl font-bold text-ink">Nasıl çalışır?</h2>
             <ol class="mt-8 grid gap-6 sm:grid-cols-3">
                 <li class="rounded-xl bg-white p-6 shadow-sm">
-                    <span class="text-sm font-bold text-zred">1</span>
+                    <span class="text-sm font-bold text-accent">1</span>
                     <p class="mt-2 font-semibold text-navy">Bilgilerinizi girin</p>
                     <p class="mt-1 text-sm text-muted">Ürünü seçin, kısa formu doldurun.</p>
                 </li>
                 <li class="rounded-xl bg-white p-6 shadow-sm">
-                    <span class="text-sm font-bold text-zred">2</span>
+                    <span class="text-sm font-bold text-accent">2</span>
                     <p class="mt-2 font-semibold text-navy">Teklifleri karşılaştırın</p>
                     <p class="mt-1 text-sm text-muted">Anlaşmalı şirketlerin teklifleri tek ekranda.</p>
                 </li>
                 <li class="rounded-xl bg-white p-6 shadow-sm">
-                    <span class="text-sm font-bold text-zred">3</span>
+                    <span class="text-sm font-bold text-accent">3</span>
                     <p class="mt-2 font-semibold text-navy">Poliçenizi alın</p>
                     <p class="mt-1 text-sm text-muted">Uzman ekibimiz poliçeleştirmeyi tamamlar.</p>
                 </li>

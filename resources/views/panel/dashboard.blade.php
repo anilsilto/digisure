@@ -11,7 +11,7 @@
         </a>
         <a href="/panel/teklifler?durum=teklif_bekleyen" class="rounded-xl border border-line bg-white p-5 shadow-sm transition hover:shadow-md">
             <p class="text-sm text-muted">Teklif Bekleyen</p>
-            <p class="mt-2 text-3xl font-bold text-zred">{{ $teklifBekleyen }}</p>
+            <p class="mt-2 text-3xl font-bold text-accent">{{ $teklifBekleyen }}</p>
         </a>
         <a href="{{ route('panel.policies.index') }}" class="rounded-xl border border-line bg-white p-5 shadow-sm transition hover:shadow-md">
             <p class="text-sm text-muted">Bu Hafta Biten Poliçe</p>

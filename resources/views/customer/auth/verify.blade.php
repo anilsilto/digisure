@@ -8,7 +8,7 @@
         <p class="mt-2 text-sm text-muted">Telefonunuza gönderilen 6 haneli kodu girin.</p>
 
         @if ($errors->any())
-            <div class="mt-4 rounded-lg border border-zred/30 bg-zred-tint px-3 py-2 text-sm text-zred-dark">{{ $errors->first() }}</div>
+            <div class="mt-4 rounded-lg border border-danger/30 bg-danger-tint px-3 py-2 text-sm text-danger">{{ $errors->first() }}</div>
         @endif
 
         <form method="POST" action="{{ route('customer.verify.attempt') }}" class="mt-6 space-y-4">

@@ -48,7 +48,7 @@
                                 @elseif (in_array($quoteRequest->status, ['yeni', 'teklifler_hazir'], true))
                                     <form method="POST" action="{{ route('customer.quotes.accept', [$quoteRequest, $quote]) }}">
                                         @csrf
-                                        <button class="rounded-lg bg-zred px-3 py-1.5 text-xs font-semibold text-white hover:bg-zred-dark">
+                                        <button class="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-white hover:bg-accent-dark">
                                             Bu Teklifi Seç
                                         </button>
                                     </form>

@@ -21,7 +21,7 @@
                 <label class="block text-sm font-medium text-ink">E-posta</label>
                 <input type="email" name="email" value="{{ old('email', $customer->email) }}"
                        class="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm focus:border-navy focus:outline-none">
-                @error('email') <p class="mt-1 text-xs text-zred">{{ $message }}</p> @enderror
+                @error('email') <p class="mt-1 text-xs text-danger">{{ $message }}</p> @enderror
             </div>
             <div>
                 <label class="block text-sm font-medium text-ink">Adres</label>
@@ -51,7 +51,7 @@
                   onsubmit="return confirm('Verilerinizin silinmesi talebini onaylıyor musunuz?');">
                 @csrf
                 <input type="hidden" name="type" value="sil">
-                <button class="rounded-lg border border-zred/40 px-4 py-2 text-sm font-medium text-zred hover:bg-zred-tint">Silme Talebi</button>
+                <button class="rounded-lg border border-danger/40 px-4 py-2 text-sm font-medium text-danger hover:bg-danger-tint">Silme Talebi</button>
             </form>
         </div>
     </div>

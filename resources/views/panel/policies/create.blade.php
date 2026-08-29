@@ -9,7 +9,7 @@
         @csrf
 
         @if ($errors->any())
-            <div class="rounded-lg border border-zred/30 bg-zred-tint px-3 py-2 text-sm text-zred-dark">{{ $errors->first() }}</div>
+            <div class="rounded-lg border border-danger/30 bg-danger-tint px-3 py-2 text-sm text-danger">{{ $errors->first() }}</div>
         @endif
 
         <div class="grid gap-4 sm:grid-cols-2">

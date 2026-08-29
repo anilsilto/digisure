@@ -25,7 +25,7 @@
             <h1 class="text-3xl font-extrabold sm:text-4xl">{{ $product->name }}</h1>
             <p class="mt-3 max-w-2xl text-white/80">{{ $copy['lead'] }}</p>
             <a href="{{ url('/teklif?urun=' . $product->key) }}"
-               class="mt-6 inline-block rounded-lg bg-zred px-6 py-3 font-semibold text-white transition hover:bg-zred-dark">
+               class="mt-6 inline-block rounded-lg bg-accent px-6 py-3 font-semibold text-white transition hover:bg-accent-dark">
                 Teklif Al
             </a>
         </div>

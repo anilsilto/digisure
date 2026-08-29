@@ -8,18 +8,22 @@
     --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
         Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 
-    /* Zafir kurumsal paleti */
-    --color-navy: #1b2e6e;
-    --color-navy-dark: #1a2340;
-    --color-zred: #c41e2a;
-    --color-zred-dark: #a01820;
-    --color-zred-tint: #fdf0f1;
-    --color-navy-tint: #f4f6fb;
-    --color-navy-tint-2: #eef1f8;
-    --color-line: #eaecf0;
-    --color-line-2: #d6dce8;
-    --color-ink: #1a2340;
-    --color-muted: #5a6a7a;
+    /* Polisurance kurumsal paleti — lacivert + turkuaz (logo) */
+    --color-navy: #173a6b;
+    --color-navy-dark: #12305f;
+    --color-accent: #2cb8da;
+    --color-accent-dark: #1c93b4;
+    --color-accent-tint: #ecf9fc;
+    --color-navy-tint: #f2f7fb;
+    --color-navy-tint-2: #e7f1f7;
+    --color-line: #e5eaf0;
+    --color-line-2: #cfdbe6;
+    --color-ink: #14233f;
+    --color-muted: #566579;
     --color-gold: #e8a020;
-    --color-ok: #0f6e56;
+    --color-ok: #0f8f77;
+
+    /* Gerçek hata/tehlike durumları için (form hataları, silme) — istenirse kullanılır */
+    --color-danger: #c9313c;
+    --color-danger-tint: #fdeef0;
 }

@@ -33,7 +33,7 @@
             </nav>
             <form method="POST" action="{{ route('panel.logout') }}" class="border-t border-line p-3">
                 @csrf
-                <button type="submit" class="w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-muted hover:bg-zred-tint hover:text-zred">
+                <button type="submit" class="w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-muted hover:bg-danger-tint hover:text-danger">
                     Çıkış
                 </button>
             </form>
