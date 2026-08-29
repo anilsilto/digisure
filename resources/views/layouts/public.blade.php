@@ -10,9 +10,9 @@
 <body class="min-h-screen bg-white text-ink antialiased flex flex-col">
 
     <header class="border-b border-line bg-white">
-        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2.5">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2">
             <a href="{{ url('/') }}" class="flex items-center">
-                <x-brand.logo class="h-14 md:h-16" />
+                <x-brand.logo class="h-16 md:h-20" />
             </a>
 
             <nav class="hidden items-center gap-6 text-sm font-medium text-muted md:flex">

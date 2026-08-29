@@ -63,21 +63,59 @@
     </section>
 
     <section id="nasil-calisir" class="scroll-mt-16 bg-navy-tint">
-        <div class="mx-auto max-w-6xl px-4 py-16">
-            <h2 class="text-2xl font-bold text-ink">Nasıl çalışır?</h2>
-            <ol class="mt-8 grid gap-6 sm:grid-cols-3">
-                @foreach ([
-                    ['Bilgilerinizi girin', 'Ürünü seçin, kısa formu doldurun.'],
-                    ['Teklifleri karşılaştırın', 'Anlaşmalı şirketlerin teklifleri tek ekranda.'],
-                    ['Poliçenizi alın', 'Uzman ekibimiz poliçeleştirmeyi tamamlar.'],
-                ] as $i => [$baslik, $aciklama])
-                    <li class="rounded-xl bg-white p-6 shadow-sm">
-                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent-dark">{{ $i + 1 }}</span>
-                        <p class="mt-3 font-semibold text-navy">{{ $baslik }}</p>
-                        <p class="mt-1 text-sm text-muted">{{ $aciklama }}</p>
+        <div class="mx-auto max-w-6xl px-4 py-16 lg:py-20">
+            <h2 class="text-2xl font-bold text-ink sm:text-3xl">Nasıl çalışır?</h2>
+            <p class="mt-2 max-w-2xl text-muted">Teklif talebinden poliçeye ve yenileme hatırlatmasına kadar dört adım. Formu doldurmanız yeterli, gerisini uzman ekibimiz yürütür.</p>
+
+            <ol class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                @php
+                    $steps = [
+                        [
+                            'baslik' => 'Ürününüzü seçin, formu doldurun',
+                            'aciklama' => 'Trafik, kasko veya sağlık — ihtiyacınıza göre seçin ve size özel kısa formu doldurun. KVKK aydınlatma onayını verip talebinizi gönderin; anında referans numaranızı alırsınız.',
+                            'detay' => ['Gerekli: araçta plaka & ruhsat, sağlıkta doğum tarihi', 'Yaklaşık 2 dakika'],
+                        ],
+                        [
+                            'baslik' => 'Anlaşmalı şirketlerden teklif toplayalım',
+                            'aciklama' => 'Ekibimiz Sompo, Quick, HEPİYİ ve Doğa Sigorta’dan sizin için teklif ister. Teklifleriniz hazır olduğunda SMS ile haber veririz.',
+                            'detay' => ['4 anlaşmalı şirket', 'Genellikle aynı gün'],
+                        ],
+                        [
+                            'baslik' => 'Teklifleri tek ekranda karşılaştırın',
+                            'aciklama' => 'TC ve telefonunuzla Hesabım’a giriş yapın; şifre yok, SMS ile gelen kodu girmeniz yeterli. Prim, teminat ve poliçe süresini yan yana görüp size en uygun teklifi seçin.',
+                            'detay' => ['Girişte şifre yok', 'Prim + teminat karşılaştırması'],
+                        ],
+                        [
+                            'baslik' => 'Poliçenizi alın, yenilemeyi kaçırmayın',
+                            'aciklama' => 'Seçiminizin ardından ekibimiz poliçeleştirmeyi tamamlar; poliçe belgeniz Hesabım’da hazır olur. Bitiş tarihi yaklaşınca SMS ve e-posta ile hatırlatırız.',
+                            'detay' => ['Poliçe PDF hesabınızda', 'Bitişe 30 / 15 / 7 gün kala hatırlatma'],
+                        ],
+                    ];
+                @endphp
+
+                @foreach ($steps as $i => $step)
+                    <li class="flex flex-col rounded-xl bg-white p-6 shadow-sm">
+                        <span class="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-base font-bold text-accent-dark">{{ $i + 1 }}</span>
+                        <h3 class="mt-4 font-semibold text-navy">{{ $step['baslik'] }}</h3>
+                        <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{{ $step['aciklama'] }}</p>
+                        <ul class="mt-4 space-y-1.5 border-t border-line pt-3 text-xs text-muted">
+                            @foreach ($step['detay'] as $d)
+                                <li class="flex gap-2">
+                                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
+                                    <span>{{ $d }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
                     </li>
                 @endforeach
             </ol>
+
+            <div class="mt-10">
+                <a href="{{ url('/teklif') }}"
+                   class="inline-block rounded-lg bg-accent px-7 py-3.5 font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-dark">
+                    Hemen Teklif Al
+                </a>
+            </div>
         </div>
     </section>
 @endsection
