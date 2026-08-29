@@ -9,6 +9,7 @@ use App\Http\Controllers\Customer\QuoteController as CustomerQuoteController;
 use App\Http\Controllers\Panel\PolicyController as PanelPolicyController;
 use App\Http\Controllers\Panel\QuoteController as PanelQuoteController;
 use App\Http\Controllers\Panel\QuoteRequestController as PanelQuoteRequestController;
+use App\Http\Controllers\Public\CalculatorController;
 use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\PageController;
 use App\Http\Controllers\Public\QuoteRequestController;
@@ -42,6 +43,17 @@ Route::post('/teklif', [QuoteRequestController::class, 'store'])
     ->middleware('throttle:6,1')
     ->name('teklif.store');
 Route::get('/teklif/alindi', [QuoteRequestController::class, 'received'])->name('teklif.received');
+
+/*
+|--------------------------------------------------------------------------
+| Hesaplama araçları
+|--------------------------------------------------------------------------
+*/
+Route::get('/hesaplama', [CalculatorController::class, 'index'])->name('calc.index');
+Route::match(['get', 'post'], '/hesaplama/mtv', [CalculatorController::class, 'mtv'])->name('calc.mtv');
+Route::match(['get', 'post'], '/hesaplama/otv', [CalculatorController::class, 'otv'])->name('calc.otv');
+Route::match(['get', 'post'], '/hesaplama/yakit', [CalculatorController::class, 'fuel'])->name('calc.fuel');
+Route::match(['get', 'post'], '/hesaplama/kasko-deger', [CalculatorController::class, 'kasko'])->name('calc.kasko');
 
 /*
 |--------------------------------------------------------------------------
