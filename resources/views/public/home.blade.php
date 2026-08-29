@@ -31,7 +31,13 @@
             </div>
 
             <div class="shrink-0">
-                <x-brand.hero-mark class="h-56 w-56 drop-shadow-[0_0_60px_rgba(44,184,218,0.35)] sm:h-64 sm:w-64 lg:h-80 lg:w-80" />
+                @php $mascot = collect(['png', 'webp'])->map(fn ($e) => "img/mascot.$e")->first(fn ($r) => file_exists(public_path($r))); @endphp
+                @if ($mascot)
+                    <img src="{{ asset($mascot) }}" alt="{{ config('digisure.brand') }} maskotu"
+                         class="h-64 w-64 object-contain drop-shadow-[0_18px_50px_rgba(44,184,218,0.45)] sm:h-72 sm:w-72 lg:h-[22rem] lg:w-[22rem]">
+                @else
+                    <x-brand.hero-mark class="h-64 w-64 sm:h-72 sm:w-72 lg:h-80 lg:w-80" />
+                @endif
             </div>
         </div>
     </section>

@@ -6,7 +6,7 @@
     <section class="mx-auto max-w-xl px-4 py-20 text-center">
         @php $mascot = collect(['png', 'webp', 'jpg'])->map(fn ($e) => "img/mascot.$e")->first(fn ($r) => file_exists(public_path($r))); @endphp
         @if ($mascot)
-            <img src="{{ asset($mascot) }}" alt="" class="mx-auto h-28 w-28 rounded-full object-cover">
+            <img src="{{ asset($mascot) }}" alt="" class="mx-auto h-40 w-40 object-contain drop-shadow-[0_12px_30px_rgba(44,184,218,0.3)]">
         @else
             <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ok/10 text-2xl text-ok">✓</div>
         @endif
