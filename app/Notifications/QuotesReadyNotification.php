@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Jobs\SendSmsJob;
 use App\Models\NotificationLog;
 use App\Models\QuoteRequest;
 
@@ -25,7 +26,7 @@ class QuotesReadyNotification
             $request->reference_no,
         );
 
-        NotificationLog::create([
+        $log = NotificationLog::create([
             'notifiable_type' => $customer::class,
             'notifiable_id' => $customer->id,
             'channel' => 'sms',
@@ -37,5 +38,7 @@ class QuotesReadyNotification
             ],
             'status' => 'kuyrukta',
         ]);
+
+        SendSmsJob::dispatch($customer->phone, $message, $log->id);
     }
 }

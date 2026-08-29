@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Domain\Insurer\QuoteProviderManager;
 use App\Models\User;
 use App\Notifications\Sms\LogSmsSender;
+use App\Notifications\Sms\NetgsmSmsSender;
 use App\Notifications\Sms\SmsSender;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -15,8 +16,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(QuoteProviderManager::class);
 
-        // Task 12 bunu config('digisure.sms.driver') ile Netgsm/Log arasında seçer.
-        $this->app->bind(SmsSender::class, LogSmsSender::class);
+        $this->app->bind(SmsSender::class, fn () => config('digisure.sms.driver') === 'netgsm'
+            ? new NetgsmSmsSender()
+            : new LogSmsSender());
     }
 
     public function boot(): void
