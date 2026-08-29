@@ -16,8 +16,10 @@
 
             @php $teklifGorsel = collect(['png', 'webp', 'jpg'])->map(fn ($e) => "img/teklif.$e")->first(fn ($r) => file_exists(public_path($r))); @endphp
             @if ($teklifGorsel)
-                <img src="{{ asset($teklifGorsel) }}" alt="Anlaşmalı şirketlerin tekliflerini karşılaştırın"
-                     class="mx-auto w-full max-w-3xl rounded-2xl shadow-2xl shadow-black/40 ring-1 ring-white/10">
+                <div class="mx-auto w-full max-w-6xl overflow-hidden rounded-2xl shadow-2xl shadow-black/40 ring-1 ring-white/10">
+                    <img src="{{ asset($teklifGorsel) }}" alt="Anlaşmalı şirketlerin tekliflerini karşılaştırın"
+                         class="h-56 w-full object-cover object-[50%_28%] sm:h-64 lg:h-72">
+                </div>
             @endif
 
             <p class="mx-auto mt-8 max-w-2xl text-lg text-white/80">
