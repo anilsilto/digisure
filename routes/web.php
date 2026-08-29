@@ -3,8 +3,10 @@
 use App\Http\Controllers\Panel\AuthController as PanelAuthController;
 use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
 use App\Http\Controllers\Customer\AuthController as CustomerAuthController;
+use App\Http\Controllers\Customer\PolicyController as CustomerPolicyController;
 use App\Http\Controllers\Customer\ProfileController as CustomerProfileController;
 use App\Http\Controllers\Customer\QuoteController as CustomerQuoteController;
+use App\Http\Controllers\Panel\PolicyController as PanelPolicyController;
 use App\Http\Controllers\Panel\QuoteController as PanelQuoteController;
 use App\Http\Controllers\Panel\QuoteRequestController as PanelQuoteRequestController;
 use App\Http\Controllers\Public\ContactController;
@@ -62,7 +64,13 @@ Route::prefix('panel')->name('panel.')->group(function () {
         Route::get('teklifler/{quoteRequest}', [PanelQuoteRequestController::class, 'show'])->name('quotes.show');
         Route::post('teklifler/{quoteRequest}/ata', [PanelQuoteRequestController::class, 'assign'])->name('quotes.assign');
         Route::post('teklifler/{quoteRequest}/hazir', [PanelQuoteRequestController::class, 'markReady'])->name('quotes.ready');
+        Route::post('teklifler/{quoteRequest}/policelestir', [PanelPolicyController::class, 'fromQuote'])->name('quotes.policelestir');
         Route::put('kotasyon/{quote}', [PanelQuoteController::class, 'update'])->name('quotes.update');
+
+        Route::get('policeler', [PanelPolicyController::class, 'index'])->name('policies.index');
+        Route::get('policeler/olustur', [PanelPolicyController::class, 'create'])->name('policies.create');
+        Route::post('policeler', [PanelPolicyController::class, 'store'])->name('policies.store');
+        Route::get('policeler/{policy}', [PanelPolicyController::class, 'show'])->name('policies.show');
     });
 });
 
@@ -88,6 +96,9 @@ Route::prefix('hesabim')->name('customer.')->group(function () {
         Route::get('teklifler', [CustomerQuoteController::class, 'index'])->name('quotes.index');
         Route::get('teklifler/{quoteRequest}', [CustomerQuoteController::class, 'show'])->name('quotes.show');
         Route::post('teklifler/{quoteRequest}/sec/{quote}', [CustomerQuoteController::class, 'accept'])->name('quotes.accept');
+
+        Route::get('policeler', [CustomerPolicyController::class, 'index'])->name('policies.index');
+        Route::get('policeler/{policy}/dosya', [CustomerPolicyController::class, 'download'])->name('policies.download');
 
         Route::get('profil', [CustomerProfileController::class, 'edit'])->name('profile.edit');
         Route::put('profil', [CustomerProfileController::class, 'update'])->name('profile.update');

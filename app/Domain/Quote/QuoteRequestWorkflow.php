@@ -59,6 +59,15 @@ class QuoteRequestWorkflow
         self::logActivity($request, 'quote_request.kabul');
     }
 
+    public static function transitionToPolicy(QuoteRequest $request): void
+    {
+        self::guard($request->status, 'police');
+
+        $request->update(['status' => 'police']);
+
+        self::logActivity($request, 'quote_request.police');
+    }
+
     public static function cancel(QuoteRequest $request): void
     {
         self::guard($request->status, 'iptal');

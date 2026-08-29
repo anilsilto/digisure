@@ -59,6 +59,23 @@
 
         {{-- Sağ: şirket teklifleri --}}
         <div class="lg:col-span-2 space-y-4">
+            @if ($quoteRequest->status === 'kabul')
+                <form method="POST" action="{{ route('panel.quotes.policelestir', $quoteRequest) }}" enctype="multipart/form-data"
+                      class="rounded-xl border border-ok/40 bg-ok/5 p-5">
+                    @csrf
+                    <h3 class="font-semibold text-ok">Poliçeye Çevir</h3>
+                    <p class="mt-1 text-xs text-muted">Kabul edilen teklif: {{ $insurerLabels[$quoteRequest->acceptedQuote?->insurer] ?? '—' }}</p>
+                    @error('policelestir') <p class="mt-1 text-sm text-zred">{{ $message }}</p> @enderror
+                    <div class="mt-3 grid gap-3 sm:grid-cols-3">
+                        <label class="text-sm">Poliçe No <input type="text" name="policy_no" class="mt-1 w-full rounded-lg border border-line px-2 py-1.5"></label>
+                        <label class="text-sm">Başlangıç <input type="date" name="start_date" class="mt-1 w-full rounded-lg border border-line px-2 py-1.5"></label>
+                        <label class="text-sm">Bitiş <input type="date" name="end_date" class="mt-1 w-full rounded-lg border border-line px-2 py-1.5"></label>
+                        <label class="text-sm sm:col-span-3">PDF <input type="file" name="file" accept="application/pdf" class="mt-1 block text-xs"></label>
+                    </div>
+                    <button class="mt-3 rounded-lg bg-ok px-4 py-2 text-sm font-semibold text-white">Poliçe Oluştur</button>
+                </form>
+            @endif
+
             @php $verildiVar = $quoteRequest->quotes->contains('status', 'verildi'); @endphp
 
             <div class="flex items-center justify-between">
