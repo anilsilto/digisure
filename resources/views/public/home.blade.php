@@ -76,12 +76,12 @@
                 ];
             @endphp
             @foreach ($products as $product)
-                <div class="flex flex-col rounded-xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-                    <span class="flex h-14 w-14 items-center justify-center rounded-xl bg-navy-tint text-navy ring-1 ring-line">
+                <div class="group flex flex-col rounded-2xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10">
+                    <span class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-navy to-accent-dark text-white shadow-md shadow-navy/20 transition group-hover:scale-105">
                         <x-icon.product :type="$product->key" class="h-8 w-8" />
                     </span>
-                    <h3 class="mt-4 text-lg font-semibold text-navy">{{ $product->name }}</h3>
-                    <p class="mt-2 flex-1 text-sm text-muted">{{ $urunAciklama[$product->key] ?? '' }}</p>
+                    <h3 class="mt-5 text-lg font-bold text-navy">{{ $product->name }}</h3>
+                    <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{{ $urunAciklama[$product->key] ?? '' }}</p>
                     <a href="{{ route('urun.show', $product->key) }}"
                        class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:text-accent-dark">
                         Detay & Teklif Al <span aria-hidden="true">→</span>
