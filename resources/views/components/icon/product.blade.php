@@ -13,9 +13,12 @@
             @break
 
         @case('kasko')
-            {{-- Lucide: shield-check --}}
+            {{-- Kalkan + üstünde otomobil --}}
             <path d="M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1 1 0 0 1 1.6 0C15.5 3.8 18 5 20 5a1 1 0 0 1 1 1z"/>
-            <path d="m9 12 2 2 4-4"/>
+            <path d="M8.4 13.6l.9-2.5a1.4 1.4 0 0 1 1.3-.9h2.8a1.4 1.4 0 0 1 1.3.9l.9 2.5"/>
+            <path d="M7.7 13.6h8.6v1.5a.7.7 0 0 1-.7.7h-.5a.7.7 0 0 1-.7-.7v-.3H9.6v.3a.7.7 0 0 1-.7.7h-.5a.7.7 0 0 1-.7-.7z"/>
+            <circle cx="10" cy="13.6" r=".65" fill="currentColor"/>
+            <circle cx="14" cy="13.6" r=".65" fill="currentColor"/>
             @break
 
         @case('saglik')
