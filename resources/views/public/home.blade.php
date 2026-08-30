@@ -69,22 +69,19 @@
 
         <div class="mt-8 grid gap-6 sm:grid-cols-3">
             @php
-                $urunMeta = [
-                    'trafik' => ['Zorunlu trafik sigortanızı anlaşmalı şirketlerden en uygun fiyata bulun.', 'M3 13l2-5a3 3 0 013-2h8a3 3 0 013 2l2 5M5 17h14M6 17v2M18 17v2M7 13h10'],
-                    'kasko' => ['Aracınızı çarpma, çalınma, yangın ve doğal afetlere karşı kapsamlı güvenceye alın.', 'M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4zM9.5 12l1.8 1.8L15 10'],
-                    'saglik' => ['Tamamlayıcı ve özel sağlık planlarını ihtiyaçlarınıza göre karşılaştırın.', 'M12 21C7 17 4 13.5 4 9.5A4.5 4.5 0 0112 6a4.5 4.5 0 018 3.5C20 13.5 17 17 12 21z'],
+                $urunAciklama = [
+                    'trafik' => 'Zorunlu trafik sigortanızı anlaşmalı şirketlerden en uygun fiyata bulun.',
+                    'kasko' => 'Aracınızı çarpma, çalınma, yangın ve doğal afetlere karşı kapsamlı güvenceye alın.',
+                    'saglik' => 'Tamamlayıcı ve özel sağlık planlarını ihtiyaçlarınıza göre karşılaştırın.',
                 ];
             @endphp
             @foreach ($products as $product)
-                @php [$aciklama, $ikon] = $urunMeta[$product->key] ?? ['', '']; @endphp
                 <div class="flex flex-col rounded-xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-                    <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-navy-tint text-navy">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="{{ $ikon }}"/>
-                        </svg>
+                    <span class="flex h-14 w-14 items-center justify-center rounded-xl bg-navy-tint text-navy ring-1 ring-line">
+                        <x-icon.product :type="$product->key" class="h-8 w-8" />
                     </span>
                     <h3 class="mt-4 text-lg font-semibold text-navy">{{ $product->name }}</h3>
-                    <p class="mt-2 flex-1 text-sm text-muted">{{ $aciklama }}</p>
+                    <p class="mt-2 flex-1 text-sm text-muted">{{ $urunAciklama[$product->key] ?? '' }}</p>
                     <a href="{{ route('urun.show', $product->key) }}"
                        class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:text-accent-dark">
                         Detay & Teklif Al <span aria-hidden="true">→</span>
