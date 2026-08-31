@@ -73,7 +73,8 @@ class RiskKpi
         $rows = Policy::query()
             ->where('policies.status', 'aktif')
             ->join('product_types', 'product_types.id', '=', 'policies.product_type_id')
-            ->selectRaw('product_types.key as key, product_types.name as name, count(*) as adet')
+            ->select('product_types.key as key', 'product_types.name as name')
+            ->selectRaw('count(*) as adet')
             ->groupBy('product_types.key', 'product_types.name')
             ->orderByDesc('adet')
             ->get();
