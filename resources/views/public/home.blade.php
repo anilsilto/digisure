@@ -149,8 +149,41 @@
         </div>
     </section>
 
-    {{-- ============ ANLAŞMALI ŞİRKETLER ============ --}}
+    {{-- ============ ÖZEL AYRICALIKLAR / KAMPANYALAR ============ --}}
     <section class="mx-auto max-w-6xl px-4 py-16">
+        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-dark">Özel İşbirlikleri</p>
+        <h2 class="mt-2 text-2xl font-bold text-ink sm:text-3xl">
+            {{ config('digisure.agency.name') }} Müşterilerine <span class="text-accent">Özel</span> Ayrıcalıklar
+        </h2>
+        <p class="mt-2 max-w-xl text-muted">Sigorta poliçenizin ötesinde; anlaşmalı iş ortaklarımız sayesinde aracınızın her ihtiyacı için indirimli ve öncelikli hizmet alın.</p>
+
+        <div class="mt-8 grid grid-cols-2 gap-4 md:grid-cols-5">
+            @foreach ([
+                ['kampanya-1.jpg', 'Tek Çözüm Merkezi', 'Lastik oteli, araç bakımı, yıkama ve kiralama — hepsi tek çatı altında.'],
+                ['kampanya-2.jpg', 'Profesyonel Araç Yönetimi', 'Sixt kiralama, Ferco oto servis, lastik ve yıkama — aracınız emin ellerde.'],
+                ['kampanya-3.jpg', 'Araçsız Kalma', 'Hasar dosyası açılırken Sixt iş ortaklığımızla indirimli ikame araç kiralayın.'],
+                ['kampanya-4.jpg', 'Hasar Takibi Bizden', 'Anlaşmalı servisimizde hasar takibini biz yürütüyoruz. İndirimli araç bakımı ayrıcalığı.'],
+                ['kampanya-5.jpg', 'Bütüncül Hizmet Paketi', 'Lastik oteli ve araç yıkamada öncelikli randevu ve fiyat avantajı.'],
+            ] as [$gorsel, $baslik, $aciklama])
+                <div class="flex flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+                    <div class="aspect-[9/12] w-full overflow-hidden bg-navy-tint">
+                        <img src="{{ asset('img/' . $gorsel) }}" alt="{{ $baslik }}" loading="lazy"
+                             class="h-full w-full object-cover object-top">
+                    </div>
+                    <div class="flex flex-1 flex-col p-4">
+                        <span class="inline-flex w-fit items-center gap-1 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] font-medium text-accent-dark">
+                            <span class="h-1 w-1 rounded-full bg-accent"></span> Özel Avantaj
+                        </span>
+                        <p class="mt-2 text-sm font-semibold text-navy">{{ $baslik }}</p>
+                        <p class="mt-1 flex-1 text-xs leading-relaxed text-muted">{{ $aciklama }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    {{-- ============ ANLAŞMALI ŞİRKETLER ============ --}}
+    <section class="mx-auto max-w-6xl px-4 pb-16">
         <h2 class="text-2xl font-bold text-ink sm:text-3xl">Anlaşmalı sigorta şirketleri</h2>
         <p class="mt-2 text-muted">Teklifleriniz bu şirketlerin ürünleri arasından karşılaştırılır.</p>
         <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
