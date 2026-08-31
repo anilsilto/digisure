@@ -153,7 +153,7 @@
     <section class="mx-auto max-w-6xl px-4 py-16">
         <p class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-dark">Özel İşbirlikleri</p>
         <h2 class="mt-2 text-2xl font-bold text-ink sm:text-3xl">
-            {{ config('digisure.agency.name') }} Müşterilerine <span class="text-accent">Özel</span> Ayrıcalıklar
+            Müşterilerimize <span class="text-accent">Özel</span> Ayrıcalıklar
         </h2>
         <p class="mt-2 max-w-xl text-muted">Sigorta poliçenizin ötesinde; anlaşmalı iş ortaklarımız sayesinde aracınızın her ihtiyacı için indirimli ve öncelikli hizmet alın.</p>
 
