@@ -37,7 +37,7 @@ Route::post('/iletisim', [ContactController::class, 'send'])
     ->name('iletisim.send');
 
 Route::get('/{product}-sigortasi', [PageController::class, 'product'])
-    ->where('product', 'trafik|kasko|saglik')
+    ->where('product', '[a-z-]+')
     ->name('urun.show');
 
 /*

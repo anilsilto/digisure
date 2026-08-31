@@ -67,12 +67,16 @@
         <h2 class="text-2xl font-bold text-ink sm:text-3xl">Ürünlerimiz</h2>
         <p class="mt-2 text-muted">İhtiyacınıza uygun ürünü seçin, birkaç dakikada teklif talebi oluşturun.</p>
 
-        <div class="mt-8 grid gap-6 sm:grid-cols-3">
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             @php
                 $urunAciklama = [
                     'trafik' => 'Zorunlu trafik sigortanızı anlaşmalı şirketlerden en uygun fiyata bulun.',
                     'kasko' => 'Aracınızı çarpma, çalınma, yangın ve doğal afetlere karşı kapsamlı güvenceye alın.',
                     'saglik' => 'Tamamlayıcı ve özel sağlık planlarını ihtiyaçlarınıza göre karşılaştırın.',
+                    'konut' => 'Eviniz ve eşyalarınızı yangın, hırsızlık, su baskını ve depreme (DASK üstü) karşı koruyun.',
+                    'seyahat' => 'Yurt dışı seyahatlerinizde tedavi masraflarını güvenceye alın; Schengen vizesine uygun.',
+                    'isyeri' => 'İş yerinizi ve stoklarınızı yangın, su baskını, hırsızlık ve iş durması riskine karşı koruyun.',
+                    'ferdi-kaza' => 'Kaza sonucu vefat ve sürekli sakatlıkta toplu tazminat güvencesi.',
                 ];
             @endphp
             @foreach ($products as $product)

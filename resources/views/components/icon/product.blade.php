@@ -27,6 +27,33 @@
             <path d="M3.2 12h5l.7-1.4 2 4.5 2.2-6.4L16.4 12H21"/>
             @break
 
+        @case('konut')
+            {{-- Ev + koruma --}}
+            <path d="M3 10.5 12 3l9 7.5"/>
+            <path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/>
+            <path d="M10 21v-5a2 2 0 0 1 4 0v5"/>
+            @break
+
+        @case('seyahat')
+            {{-- Uçak --}}
+            <path d="M17.8 19.2 16 11l3.5-3.5a2.1 2.1 0 0 0-3-3L13 8 4.8 6.2a.5.5 0 0 0-.5.8L8.5 11l-2.5 3H4l-1 1.5L6 17l1.5 3 1.5-1v-2l3-2.5 4.2 4.2a.5.5 0 0 0 .8-.5z"/>
+            @break
+
+        @case('isyeri')
+            {{-- Dükkân / mağaza --}}
+            <path d="M4 9h16l-1-4H5z"/>
+            <path d="M4 9v2a3 3 0 0 0 6 0 3 3 0 0 0 4 0 3 3 0 0 0 6 0V9"/>
+            <path d="M5 13v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/>
+            <path d="M10 21v-4h4v4"/>
+            @break
+
+        @case('ferdi-kaza')
+            {{-- Kalkan içinde kişi --}}
+            <path d="M12 3l8 3v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z"/>
+            <circle cx="12" cy="10.5" r="2"/>
+            <path d="M8.5 16.5a3.7 3.7 0 0 1 7 0"/>
+            @break
+
         @default
             <circle cx="12" cy="12" r="9"/>
     @endswitch

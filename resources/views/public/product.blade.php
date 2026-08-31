@@ -51,6 +51,65 @@
             ],
             'notlar' => 'Poliçe öncesi var olan (mevcut) hastalıklar kapsam dışı bırakılabilir veya ek primle kapsanır. Doğum ve bazı planlı ameliyatlarda bekleme süresi uygulanır. Poliçeyi kesintisiz yenilediğinizde ömür boyu yenileme garantisi kazanabilirsiniz.',
         ],
+
+        'konut' => [
+            'ozet' => 'Konut sigortası eviniz ve içindeki eşyaları yangın, hırsızlık, su baskını ve doğal afet gibi risklere karşı güvence altına alır. Zorunlu Deprem Sigortası (DASK) yalnızca binanın deprem hasarını belirli bir azami tutara kadar karşılar; konut sigortası bunun üzerine eşya, hırsızlık, dâhili su ve komşuya verilen zarar gibi teminatları ekler.',
+            'aciklama' => 'DASK ile konut sigortası birbirinin alternatifi değil, tamamlayıcısıdır. DASK zorunludur ve tapu/abonelik işlemlerinde aranır; kapsamlı koruma için ikisini birlikte yaptırmak gerekir.',
+            'kapsam' => [
+                ['Yangın & infilak', 'Bina ve eşyada yangın, patlama, duman ve yıldırım zararları.'],
+                ['Dâhili su & sel', 'Tesisat patlaması, taşan su, sel ve su baskını hasarları.'],
+                ['Hırsızlık', 'Eşya, elektronik ve limitli olarak ziynet-nakit teminatı.'],
+                ['Cam kırılması', 'Sabit cam, ayna ve vitrin kırılması.'],
+                ['Deprem', 'DASK üstü bina bedeli ve eşya için deprem teminatı (poliçeye göre).'],
+                ['Komşuya verilen zarar', 'Evinizden kaynaklanan su/yangın nedeniyle üçüncü kişilere verilen zarar.'],
+            ],
+            'turler' => [
+                ['DASK (Zorunlu Deprem Sigortası)', 'Sadece binanın deprem ve deprem kaynaklı hasarını, her yıl güncellenen azami tutara kadar karşılar. Yasal olarak zorunludur.'],
+                ['Konut paket sigortası', 'DASK’ın kapsamadığı eşya, hırsızlık, dâhili su, cam ve mesuliyet teminatlarını içerir; bina bedelini gerçek değere yaklaştırır.'],
+                ['Eşya sigortası (kiracı)', 'Kiracılar için, binanın değil yalnızca kendi eşyalarının yangın, hırsızlık ve su hasarına karşı güvencesi.'],
+            ],
+            'notlar' => 'Bina ve eşya bedelini düşük göstermek primi azaltır ama hasarda oranlı (eksik sigorta) ödeme yapılır. Değerleri güncel yapı maliyeti ve eşya envanterine göre belirleyin.',
+        ],
+
+        'seyahat' => [
+            'ozet' => 'Seyahat sağlık sigortası, yurt dışında hastalanma veya kaza durumunda tedavi, ilaç, hastane ve gerekirse ülkeye geri gönderme masraflarını karşılar. Schengen ve birçok ülke vizesinde asgari 30.000 € teminatlı, seyahat tarihlerini kapsayan bir poliçe zorunludur.',
+            'aciklama' => 'Poliçe süresi seyahat tarihlerini tam kapsamalıdır; eksik gün veya düşük teminat vize reddine yol açar. Bagaj kaybı, uçuş gecikmesi ve seyahat iptali gibi ek teminatlar poliçeye eklenebilir.',
+            'kapsam' => [
+                ['Tıbbi tedavi & hastane', 'Ani hastalık ve kaza kaynaklı ayakta/yatarak tedavi giderleri.'],
+                ['İlaç masrafları', 'Doktor reçetesiyle alınan ilaçların bedeli (limit dâhilinde).'],
+                ['Tıbbi nakil & geri gönderme', 'Gerekli hâllerde ambulans ve ülkeye tıbbi geri dönüş.'],
+                ['Diş (acil)', 'Ani diş ağrısında acil tedavi (sınırlı limit).'],
+                ['Bagaj & belge kaybı', 'Kayıp/gecikmeli bagaj ve pasaport kaybında destek (ek teminat).'],
+                ['Seyahat iptali', 'Belgelenen zorunlu nedenlerle iptal edilen seyahat masrafları (ek teminat).'],
+            ],
+            'notlar' => 'Vize başvurusunda poliçe tarihinin seyahatten uzun, teminatın en az 30.000 € ve tüm Schengen ülkelerinde geçerli olduğundan emin olun. Kronik ve mevcut hastalıklar çoğu üründe kapsam dışıdır.',
+        ],
+
+        'isyeri' => [
+            'ozet' => 'İşyeri paket sigortası; dükkân, ofis, atölye veya deponuzu ve içindeki demirbaş ile emtiayı yangın, su baskını, hırsızlık ve doğal afet gibi risklere karşı korur. İşin durması hâlinde kâr kaybını ve üçüncü kişilere verilen zararları da kapsayabilir.',
+            'aciklama' => 'Teminat kapsamı ve limitler faaliyet koluna göre değişir. Yalnızca demirbaşı değil, iş sürekliliğini de güvence altına almak için kâr kaybı / iş durması teminatı önemlidir.',
+            'kapsam' => [
+                ['Yangın & infilak', 'Bina, demirbaş ve emtiada yangın, patlama, yıldırım ve duman zararları.'],
+                ['Dâhili su & doğal afet', 'Tesisat patlaması, sel, fırtına, dolu ve kar ağırlığı.'],
+                ['Hırsızlık', 'Emtia, demirbaş ve limitli kasa muhteviyatı.'],
+                ['Cam kırılması', 'Vitrin, kapı ve iç bölme camları.'],
+                ['Kâr kaybı / iş durması', 'Hasar nedeniyle faaliyetin durduğu dönemde kira, maaş ve sabit giderler.'],
+                ['Üçüncü şahıs mali mesuliyet', 'Müşteri veya komşu iş yerine verilen bedeni/maddi zararlar.'],
+            ],
+            'notlar' => 'Emtia ve demirbaş bedelini gerçekçi beyan edin; eksik sigortada hasarınız oranlı ödenir. Yüksek riskli faaliyetlerde (kimyasal, ahşap işleme vb.) ek şartlar uygulanabilir.',
+        ],
+
+        'ferdi-kaza' => [
+            'ozet' => 'Ferdi kaza sigortası, ani ve dıştan gelen bir kaza sonucu vefat veya sürekli sakatlık durumunda sigortalıya ya da yakınlarına toplu tazminat öder. Tedavi masrafları ve iş göremezlik gündelik tazminatı ek teminat olarak eklenebilir.',
+            'aciklama' => 'Sağlık sigortasının aksine hastalıkları değil, yalnızca kaza kaynaklı sonuçları kapsar. Mesleğe göre risk sınıfı ve prim değişir; tehlikeli işlerde teminat şartları farklıdır.',
+            'kapsam' => [
+                ['Vefat teminatı', 'Kaza sonucu vefatta, poliçede belirlenen tutar hak sahiplerine ödenir.'],
+                ['Sürekli sakatlık', 'Kalıcı iş göremezlikte, sakatlık oranına göre tazminat.'],
+                ['Tedavi masrafları', 'Kaza kaynaklı tedavi giderleri (ek teminat, limitli).'],
+                ['Gündelik tazminat', 'Kaza nedeniyle çalışılamayan günler için günlük ödeme (ek teminat).'],
+            ],
+            'notlar' => 'Poliçedeki teminat tutarı, vefat ve tam sakatlık için ödenecek üst sınırdır. Mesleğinizi ve varsa tehlikeli hobilerinizi (dalış, motor sporu vb.) beyan etmek, hasar anında sorun yaşamamak için önemlidir.',
+        ],
     ][$product->key] ?? null;
 
     $neden = [
@@ -81,6 +140,30 @@
             ['Mevcut hastalıklarım kapsanır mı?', 'Poliçe öncesi var olan rahatsızlıklar kapsam dışı bırakılabilir veya ek primle kapsanır. Başvuruda sağlık beyanını eksiksiz doldurmak çok önemlidir.'],
             ['Çocuklarım için yaptırabilir miyim?', 'Evet. Aile poliçesiyle eş ve çocukları tek poliçede toplayabilirsiniz.'],
             ['Bekleme süresi var mı?', 'Acil durumlar ilk günden geçerlidir. Doğum genellikle 12 ay, bazı planlı ameliyatlar 3–12 ay bekleme süresine tabidir.'],
+        ],
+        'konut' => [
+            ['DASK varken konut sigortası şart mı?', 'DASK yalnızca binanın deprem hasarını belirli bir azami tutara kadar öder. Eşya, hırsızlık, su baskını, deprem dışı yangın ve komşuya verilen zarar için konut sigortası gerekir.'],
+            ['Kiracıyım, poliçe yaptırmalı mıyım?', 'Bina ev sahibinin sorumluluğundadır ama eşyalarınız size aittir. Kiracı eşya sigortası hem eşyanızı hem de komşuya verebileceğiniz zararı güvenceye alır.'],
+            ['Bina bedelini nasıl belirlemeliyim?', 'Arsa hariç, binayı yeniden inşa etme maliyetine göre. Düşük gösterirseniz hasarınız oranlı ödenir.'],
+            ['Su baskınında alt komşunun zararını kim öder?', 'Kusur sizdeyse, poliçenizdeki üçüncü şahıs mali mesuliyet teminatı öder. Bu teminatın poliçenizde olduğundan emin olun.'],
+        ],
+        'seyahat' => [
+            ['Schengen vizesi için hangi teminat gerekli?', 'Tüm Schengen ülkelerinde geçerli, seyahat tarihlerini kapsayan ve asgari 30.000 € tıbbi teminatlı bir poliçe istenir.'],
+            ['Poliçe süresi ne kadar olmalı?', 'En az seyahat tarihleriniz kadar; giriş ve çıkış günlerini birer gün taşırması önerilir.'],
+            ['Kronik hastalığım kapsanır mı?', 'Çoğu üründe mevcut ve kronik hastalıklar kapsam dışıdır; yalnızca ani ve beklenmedik acil durumlar karşılanır.'],
+            ['Vize reddedilirse ne oluyor?', 'Birçok poliçede vize reddi belgesiyle iade seçeneği vardır; ürün şartlarını satın almadan kontrol edin.'],
+        ],
+        'isyeri' => [
+            ['İşyeri sigortası zorunlu mu?', 'Genel olarak zorunlu değildir; ancak kira sözleşmeleri, ihaleler ve bazı ruhsat süreçleri poliçe isteyebilir. DASK, işyerinin bulunduğu bina için zorunludur.'],
+            ['Kâr kaybı teminatı ne işe yarar?', 'Yangın/su baskını sonrası iş yeriniz kapalıyken devam eden kira, maaş ve sabit giderleri karşılar. Ayrıca talep edilmelidir.'],
+            ['Emtia bedelini nasıl belirlerim?', 'Ortalama stok değerinizi esas alın. Düşük beyan primi azaltır ama hasarda oranlı ödeme yapılır.'],
+            ['Müşteri iş yerimde yaralanırsa?', 'Üçüncü şahıs mali mesuliyet teminatı, iş yerinizde üçüncü kişilere verilen bedeni ve maddi zararları kapsar.'],
+        ],
+        'ferdi-kaza' => [
+            ['Ferdi kaza ile sağlık sigortası aynı şey mi?', 'Hayır. Sağlık sigortası hastalık ve tedavi masraflarını, ferdi kaza ise yalnızca kaza sonucu vefat ve sürekli sakatlıkta toplu tazminatı kapsar.'],
+            ['Teminat tutarını nasıl seçmeliyim?', 'Ailenizin bir yıllık gelirinin birkaç katını karşılayacak bir tutar yaygın bir başlangıçtır. Tutarı ihtiyaç ve prim dengesine göre belirleyin.'],
+            ['Prim neye göre değişir?', 'Yaş, meslek risk sınıfı, seçilen teminat tutarı ve ek teminatlara (tedavi, gündelik tazminat) göre.'],
+            ['Spor ve hobilerimi bildirmeli miyim?', 'Evet. Dalış, motor sporu, dağcılık gibi riskli faaliyetler bildirilmezse ilgili hasar reddedilebilir.'],
         ],
     ][$product->key] ?? [];
 @endphp

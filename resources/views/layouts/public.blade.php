@@ -19,11 +19,9 @@
             ['/iletisim', 'İletişim'],
             ['/hesabim', 'Hesabım'],
         ];
-        $urunLinks = [
-            ['/trafik-sigortasi', 'Trafik Sigortası'],
-            ['/kasko-sigortasi', 'Kasko Sigortası'],
-            ['/saglik-sigortasi', 'Sağlık Sigortası'],
-        ];
+        $urunLinks = \App\Models\ProductType::active()->get()
+            ->map(fn ($p) => ['/' . $p->key . '-sigortasi', $p->name])
+            ->all();
     @endphp
 
     <header x-data="{ mobil: false }" class="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
