@@ -115,6 +115,39 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Müşteri Risk & Güvence Paneli
+    |--------------------------------------------------------------------------
+    | Varlık tipi => o varlık için beklenen ürün branşları. Her branş gerçek bir
+    | product_type.key'tir, böylece her eksiğin bir "Teklif Al" hedefi olur.
+    | weight: skora katkı ağırlığı. severity: kirmizi | sari. note: teminat hatırlatması.
+    | bands: skor <= yesil ise yeşil, <= sari ise sarı, üstü kırmızı.
+    */
+    'risk' => [
+        'bands' => ['yesil' => 30, 'sari' => 60],
+
+        'rules' => [
+            'arac' => [
+                'trafik' => ['label' => 'Zorunlu Trafik Sigortası', 'weight' => 20, 'severity' => 'kirmizi'],
+                'kasko' => ['label' => 'Kasko', 'weight' => 30, 'severity' => 'kirmizi',
+                    'note' => 'Kaskonuza İMM (İhtiyari Mali Mesuliyet) teminatı eklenmesini de değerlendirin.'],
+            ],
+            'konut' => [
+                'konut' => ['label' => 'Konut Paket Sigortası', 'weight' => 25, 'severity' => 'kirmizi',
+                    'note' => 'Zorunlu DASK poliçenizin güncel olduğundan emin olun.'],
+            ],
+            'isyeri' => [
+                'isyeri' => ['label' => 'İşyeri Paket Sigortası', 'weight' => 25, 'severity' => 'kirmizi',
+                    'note' => 'Yangın, hırsızlık ve kâr kaybı teminatlarını kapsadığından emin olun.'],
+            ],
+            'kisi' => [
+                'saglik' => ['label' => 'Tamamlayıcı Sağlık Sigortası', 'weight' => 15, 'severity' => 'sari'],
+                'ferdi-kaza' => ['label' => 'Ferdi Kaza Sigortası', 'weight' => 10, 'severity' => 'sari'],
+            ],
+        ],
+    ],
+
     'rates' => [
         // 2026 taslak değerler — acente güncelleyecek. cc dilimi => yaş dilimi => yıllık TL.
         'mtv' => [
