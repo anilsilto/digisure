@@ -15,7 +15,12 @@ class BlogSeeder extends Seeder
             'Trafik Sigortası',
             'Kasko Sigortası',
             'Sağlık Sigortası',
+            'Konut & DASK',
+            'İşyeri Sigortası',
+            'Seyahat Sigortası',
+            'Tarım Sigortası',
             'Hasar ve Süreç',
+            'Genel & Rehber',
         ])->mapWithKeys(fn ($ad) => [
             $ad => BlogCategory::updateOrCreate(['slug' => Str::slug($ad)], ['name' => $ad]),
         ]);
@@ -341,6 +346,387 @@ Zorunlu trafik sigortasının maddi ve bedeni zararlar için yıllık limitleri 
 İMM genellikle kasko poliçesine düşük ek primle eklenir. Teklif alırken İMM limitini de karşılaştırın.
 MD,
                 'gun' => 35,
+            ],
+
+            [
+                'k' => 'Trafik Sigortası',
+                'baslik' => 'Araç değer kaybı nedir, kusursuz taraf nasıl alır?',
+                'ozet' => 'Kazada kusursuzsanız, onarım sonrası aracınızın ikinci el değerindeki düşüş için karşı tarafın trafik sigortasından tazminat isteyebilirsiniz.',
+                'meta' => 'Araç değer kaybı tazminatı nedir, nasıl alınır? Kusursuz tarafın karşı sigortadan değer kaybı talebi ve zamanaşımı.',
+                'govde' => <<<'MD'
+Bir kazada onarılan araç, kayıt geçmişi nedeniyle ikinci el piyasada daha düşük fiyata satılır. Bu farka **değer kaybı** denir ve kusuru olmayan taraf, karşı tarafın **zorunlu trafik sigortasından** talep edebilir.
+
+## Kimler talep edebilir?
+
+- Kazada **kusuru olmayan** veya kusuru düşük olan taraf.
+- Aracın **kayıtlı ağır hasarı** yoksa ve onarım gören parça **plastik değilse** (tampon, ayna gibi plastik parça değişimleri genelde değer kaybına konu olmaz).
+- Araç belirli bir yaş ve kilometrenin altındaysa; çok eski/yüksek kilometreli araçlarda tutar düşer.
+
+## Nasıl başvurulur?
+
+1. Kazadan sonra karşı tarafın sigorta şirketine yazılı başvuru yapılır.
+2. Şirket 15 iş günü içinde ödeme yapmalı veya gerekçeli ret vermelidir.
+3. Sonuç olumsuzsa **Sigorta Tahkim Komisyonu**’na başvurulur; genellikle bilirkişi bir tutar belirler.
+
+## Zamanaşımı
+
+Talep hakkı kaza tarihinden itibaren **2 yıldır** (bazı durumlarda olayı ve faili öğrenmeden itibaren). Süreyi kaçırmamak için kaza sonrası erken hareket edin.
+MD,
+                'gun' => 4,
+            ],
+            [
+                'k' => 'Trafik Sigortası',
+                'baslik' => 'Alkollü veya ehliyetsiz kazada sigorta öder mi?',
+                'ozet' => 'Trafik sigortası karşı tarafın zararını öder ama alkollü/ehliyetsiz sürücüye rücu eder; kasko ise bu durumlarda ödeme yapmayabilir.',
+                'meta' => 'Alkollü kaza kasko öder mi? Ehliyetsiz sürüşte trafik sigortası ve kasko, rücu hakkı ve istisnalar.',
+                'govde' => <<<'MD'
+İnternette dolaşan “alkollüyken de öder” bilgisi yarı doğru, yarı yanlıştır. İki poliçeyi ayrı ayrı ele almak gerekir.
+
+## Zorunlu trafik sigortası
+
+Mağdur üçüncü şahsı korumak için, alkollü veya ehliyetsiz sürüşte bile **karşı tarafın zararını öder**. Ancak sigorta şirketi ödediği tutarı, kusurlu sürücüye **rücu eder** (geri ister). Yani zarar cebinizden çıkar.
+
+## Kasko
+
+Kasko poliçelerinde alkol ve ehliyetsizlik çoğunlukla **istisnadır**: kendi aracınızın hasarı ödenmeyebilir. Genişletilmiş bazı paketlerde belirli promil sınırına kadar teminat verilir; poliçe özel şartlarını kontrol edin.
+
+## Yetersiz ehliyet
+
+Aracın sınıfına uygun olmayan ehliyetle (örneğin B sınıfıyla kamyon) kullanım da benzer sonuç doğurur: trafik sigortası öder ve rücu eder, kasko genellikle ödemez.
+
+**Özet:** Alkollü/ehliyetsiz sürüş, sigorta güvencenizi fiilen ortadan kaldırır.
+MD,
+                'gun' => 9,
+            ],
+            [
+                'k' => 'Hasar ve Süreç',
+                'baslik' => 'Kaza tutanağında sık yapılan hatalar',
+                'ozet' => 'Yanlış doldurulan bir kaza tespit tutanağı, kusursuz sürücüyü kusurlu duruma düşürebilir. Krokiden imzaya dikkat edilecek noktalar.',
+                'meta' => 'Kaza tespit tutanağı nasıl doldurulur? Sık yapılan hatalar, kroki, kusur oranı ve TRAMER değerlendirmesi.',
+                'govde' => <<<'MD'
+Maddi hasarlı ve tarafların anlaştığı kazalarda tutanağı sürücüler doldurur. Küçük bir eksik, TRAMER (SBM) değerlendirmesinde kusur oranınızı olumsuz etkiler.
+
+## En sık hatalar
+
+- **Krokiyi çizmemek veya yanlış çizmek.** Araçların çarpışma anındaki konumu, şeritler ve yön okları net olmalı.
+- **Kusur oranını boş bırakmak** ya da baskıyla “yarı yarıya” yazmak.
+- Karşı tarafın **plaka, poliçe ve ruhsat** bilgilerini eksik almak.
+- **Tarih, saat ve konumu** yazmamak.
+- Tek nüsha doldurup imzalatmadan ayrılmak. İki taraf da imzalamalı, herkes bir nüsha almalı.
+
+## Ne zaman polis çağırılmalı?
+
+Yaralanma varsa, taraflar anlaşamıyorsa, sürücülerden biri alkollüyse veya kamu malına zarar geldiyse tutanağı **kolluk kuvveti** tutmalıdır.
+
+## Fotoğraf
+
+Tutanak kadar önemli: çarpışma açısını gösteren geniş kareler, hasarlı bölgeler, fren izleri ve trafik işaretleri. Bunlar itiraz aşamasında lehinize kanıt olur.
+MD,
+                'gun' => 12,
+            ],
+            [
+                'k' => 'Kasko Sigortası',
+                'baslik' => 'Küçük kazada kasko mu, cebden mi ödemek mantıklı?',
+                'ozet' => 'Ufak bir çizik veya göçükte kasko açtırmak hasarsızlık kademenizi düşürür. Basit bir hesapla hangisinin ucuz olduğuna karar verin.',
+                'meta' => 'Küçük hasarda kasko açtırmak mantıklı mı? Hasarsızlık indirimi kaybı, kademe düşüşü ve örnek hesap.',
+                'govde' => <<<'MD'
+Tamponunuz sürttü, aynanız çizildi. “Kaskodan mı yaptırayım, kendim mi öderim?” sorusunun cevabı basit bir karşılaştırmada.
+
+## Kasko açtırırsanız ne kaybedersiniz?
+
+- **Hasarsızlık kademeniz düşer.** Bir sonraki yıl priminiz belirgin şekilde artar ve bu artış birkaç yıl sürebilir.
+- Poliçenizde **muafiyet** varsa, hasarın bir kısmını zaten siz ödersiniz.
+
+## Nasıl karar verilir?
+
+Şöyle bir toplam çıkarın:
+
+1. Onarımın tahmini bedeli.
+2. Muafiyet tutarı (varsa).
+3. Önümüzdeki 2–3 yılda kademe düşüşünden doğacak **ek prim farkı**.
+
+Onarım bedeli, (2) + (3) toplamından düşükse **cebinizden ödemek** daha ekonomiktir. Yüksekse kaskoyu kullanın.
+
+## İpucu
+
+Cam kırılması gibi bazı teminatlar çoğu poliçede kademeyi etkilemez; bunları çekinmeden kullanabilirsiniz.
+MD,
+                'gun' => 14,
+            ],
+            [
+                'k' => 'Kasko Sigortası',
+                'baslik' => 'Sonradan takılan jant, multimedya, cam filmi kaskoya işler mi?',
+                'ozet' => 'Araca sonradan eklenen aksesuarlar, poliçeye ayrıca bildirilip bedeli eklenmediyse hasar anında ödenmez.',
+                'meta' => 'Aksesuar kasko teminatı: çelik jant, ses sistemi, cam filmi. Sonradan eklenen ekipman hasar anında ödenir mi?',
+                'govde' => <<<'MD'
+Fabrika çıkışı standart donanım kasko bedeline dahildir. **Sonradan** takılan ekipman için ayrı bir kural işler.
+
+## Neden ayrıca bildirilmeli?
+
+Kasko bedeli, aracın TSB Kasko Değer Listesi’ndeki standart hâline göre belirlenir. Çelik jant, gelişmiş multimedya, hi-fi ses sistemi, LPG, cam filmi veya kaplama gibi ilaveler bu bedele **dahil değildir**. Hasar veya hırsızlıkta bunların bedelini alabilmek için:
+
+1. Poliçe yapılırken aksesuarları **beyan edin**.
+2. Fatura veya değer tespitiyle **ek teminat** olarak poliçeye ekletin (genellikle küçük bir ek prim).
+
+## Bildirilmezse ne olur?
+
+Aracınız çalınır veya yanarsa, sigorta yalnızca standart araç bedelini öder; binlerce liralık aksesuar zararı sizde kalır.
+
+## LPG özel durumu
+
+LPG sistemi hem güvenlik hem bedel açısından mutlaka poliçede yer almalıdır; bildirilmemiş LPG bazı şirketlerde hasarın reddine gerekçe olabilir.
+MD,
+                'gun' => 17,
+            ],
+            [
+                'k' => 'Kasko Sigortası',
+                'baslik' => 'Dolu yağışında araç hasarını kasko karşılar mı?',
+                'ozet' => 'Dolu, kasko poliçelerinde doğal afet teminatı kapsamındadır. Teminatın açık yazılı olması ve hasarın zamanında bildirilmesi gerekir.',
+                'meta' => 'Dolu hasarı kasko öder mi? Doğal afet teminatı, PDR (boyasız göçük düzeltme) ve hasarsızlığa etkisi.',
+                'govde' => <<<'MD'
+Birkaç dakikalık şiddetli dolu, kaputta ve tavanda yüzlerce göçük bırakıp yüksek onarım maliyeti çıkarabilir.
+
+## Teminat durumu
+
+Dolu; sel, fırtına ve yıldırımla birlikte **doğal afet** teminatı altındadır. Tam kasko poliçelerinde genellikle standarttır; dar kasko veya sınırlı paketlerde **açıkça yazılı** olup olmadığını kontrol edin.
+
+## Onarım yöntemi
+
+Boya bozulmadıysa **PDR (boyasız göçük düzeltme)** uygulanır; bu hem hızlıdır hem de aracın orijinal boyasını korur, değer kaybını azaltır. Boya çatladıysa panel boyası gerekir.
+
+## Hasarsızlığa etkisi
+
+Doğal afet hasarları çoğu şirkette **kusur içermediği için** hasarsızlık kademesini standart bir çarpışma kadar etkilemez; yine de poliçe özel şartlarına bakın.
+
+## Ne yapmalısınız?
+
+Yağış diner dinmez fotoğraf çekin, aracı kapalı alana alın ve şirketinize bildirin. Toplu dolu olaylarında eksper randevuları yoğunlaşır, erken başvuru avantaj sağlar.
+MD,
+                'gun' => 20,
+            ],
+            [
+                'k' => 'Sağlık Sigortası',
+                'baslik' => 'TSS mi ÖSS mi? Hangisi size uygun',
+                'ozet' => 'Seçim; SGK durumunuza, bütçenize ve hangi hastanelerde tedavi olmak istediğinize bağlıdır. İkisini net bir tabloyla karşılaştırıyoruz.',
+                'meta' => 'TSS mi ÖSS mi? Tamamlayıcı ve özel sağlık sigortası karşılaştırması, prim, hastane ağı ve kimlere uygun olduğu.',
+                'govde' => <<<'MD'
+İki ürün de özel hastane masrafını hafifletir ama farklı mantıkla çalışır.
+
+## Tamamlayıcı Sağlık Sigortası (TSS)
+
+- **SGK’lı olmak şarttır.**
+- SGK anlaşmalı özel hastanede, SGK’nın karşılamadığı **fark ücretini** öder.
+- Primi **uygundur**, en yaygın tercih.
+- Hastane seçimi SGK anlaşmalı özel hastanelerle sınırlıdır.
+
+## Özel Sağlık Sigortası (ÖSS)
+
+- **SGK şartı yoktur.**
+- Şirketin anlaşmalı kurum listesindeki hastanelerde geniş teminatla tedavi sağlar.
+- Primi **daha yüksek**, teminat ve hastane ağı **daha esnektir**.
+- Yurt dışı tedavi, geniş ayakta tedavi limiti gibi seçenekler sunabilir.
+
+## Kısa karar rehberi
+
+- SGK’lı çalışan/emekli + özel hastane istiyorsanız → **TSS** genellikle yeterli ve ekonomik.
+- SGK’sız, çok geniş hastane ağı ve yüksek limit istiyorsanız → **ÖSS**.
+- Kronik takip veya planlı ameliyat varsa → bekleme süreleri ve mevcut hastalık şartlarına ikisinde de dikkat.
+MD,
+                'gun' => 6,
+            ],
+            [
+                'k' => 'Sağlık Sigortası',
+                'baslik' => 'Geçmiş hastalık ve TSS: doğru beyan neden önemli?',
+                'ozet' => 'Poliçe öncesi rahatsızlıklar sağlık sigortasında istisna olabilir. E-Nabız kayıtları görünür olduğundan, başvuruda eksik beyan hasar ödemesini riske atar.',
+                'meta' => 'Geçmiş hastalıkla TSS alınır mı? Mevcut hastalık istisnası, sağlık beyanı ve e-nabız kayıtlarının rolü.',
+                'govde' => <<<'MD'
+Sağlık sigortasında en kritik konu, poliçe **başlamadan önce** var olan rahatsızlıklardır.
+
+## Mevcut hastalık ne demek?
+
+Tanısı konmuş veya belirtileri bilinen, poliçe öncesi rahatsızlıklardır. Sigorta şirketi bunları:
+
+- Tamamen **kapsam dışı** bırakabilir,
+- **Ek prim** (sürprim) ile kapsayabilir,
+- Belirli bir süre sonra dahil edebilir.
+
+## Beyan neden doğru olmalı?
+
+Başvuru formundaki sağlık beyanı yanlış veya eksikse, hasar anında şirket kaydı tespit edip **ödemeyi reddedebilir** ve poliçeyi iptal edebilir. Sağlık geçmişi sistem üzerinden görülebildiği için “yazmasam belli olmaz” yaklaşımı risklidir.
+
+## Ne yapmalısınız?
+
+- Geçmiş tanılarınızı, kullandığınız ilaçları ve ameliyatları eksiksiz yazın.
+- Sürprimli de olsa kapsama alınan bir teminat, hiç kapsanmayandan iyidir.
+- **Ömür boyu yenileme garantisi** olan poliçelerde, kesintisiz yenilediğiniz sürece sonradan çıkan hastalıklar için şirket sizi dışlayamaz.
+MD,
+                'gun' => 10,
+            ],
+            [
+                'k' => 'Konut & DASK',
+                'baslik' => 'DASK evin gerçek değerini öder mi? Konut sigortası neden şart',
+                'ozet' => 'DASK yalnızca yapının belirli bir azami tutara kadar deprem hasarını karşılar. Eşya, hırsızlık, yangın ve komşuya verilen zarar için konut sigortası gerekir.',
+                'meta' => 'DASK yeterli mi? DASK azami teminat, konut sigortası farkı, eşya ve mesuliyet teminatları.',
+                'govde' => <<<'MD'
+“DASK’ım var, kafam rahat” cümlesi büyük bir yanılgı olabilir.
+
+## DASK ne yapar, ne yapmaz?
+
+- **Yapar:** Sadece **deprem ve deprem kaynaklı** (yangın, infilak, tsunami, yer kayması) hasarları, **binanın** kendisi için, her yıl güncellenen bir **azami teminat tutarına** kadar karşılar.
+- **Yapmaz:** Eşyalarınızı, hırsızlığı, su baskınını, deprem dışı yangını, cam kırılmasını, komşuya verdiğiniz zararı ve azami tutarın üzerindeki bina değerini karşılamaz.
+
+## Konut sigortası neyi ekler?
+
+- Bina + **eşya** için gerçek değere yakın teminat.
+- Yangın, dâhili su, sel, hırsızlık, cam kırılması.
+- **Komşuya/üçüncü kişiye verilen zarar** (mesuliyet).
+- İzolasyon eksikliğinden komşuya sızan su gibi günlük olaylar.
+- İsteğe bağlı: kira kaybı, elektronik cihaz, ferdi kaza.
+
+## Sonuç
+
+DASK **zorunlu ve tamamlayıcıdır**; ancak tek başına evinizi ve içindekileri korumaz. Doğru koruma DASK + konut sigortası birlikteliğidir.
+MD,
+                'gun' => 13,
+            ],
+            [
+                'k' => 'Konut & DASK',
+                'baslik' => 'Su baskınında hasarı kim öder: kiracı mı, ev sahibi mi?',
+                'ozet' => 'Sorumluluk, suyun kaynağına ve kusura göre değişir. Bina tesisatı ev sahibinin, kullanıcı kusuru kiracının, sızıntı zararı ise komşunun poliçesini ilgilendirir.',
+                'meta' => 'Su baskını hasarını kim öder? Kiracı ve ev sahibi sorumluluğu, dâhili su teminatı ve komşuya sızan su.',
+                'govde' => <<<'MD'
+Üst kattan su indi ya da sizin banyodan alt komşuya sızdı. Masrafı kimin karşılayacağı birkaç soruya bağlı.
+
+## 1. Su nereden geldi?
+
+- **Bina ana tesisatı / çatı / kolon:** Genelde **ev sahibinin** ve bina yönetiminin sorumluluğu. Ev sahibinin konut sigortasındaki **dâhili su** teminatı devreye girer.
+- **Daire içi kullanım kusuru** (açık kalan musluk, bakımsız hortum): Kusurlu **kullanıcının** sorumluluğu; kiracıysa kiracının.
+
+## 2. Zarar kimde?
+
+- **Kendi eşyanızda:** Kendi konut/eşya sigortanızın hırsızlık-dışı su teminatı.
+- **Alt/yan komşunun evinde:** Sizin poliçenizdeki **mesuliyet (komşuya verilen zarar)** teminatı öder.
+
+## 3. Hemen ne yapılmalı?
+
+Ana vanayı kapatın, elektriği kesin, fotoğraf ve video çekin, bina yönetimine ve sigorta şirketinize bildirin. Kurutma ve onarım için eksper görüşü beklenmeli.
+
+## Ders
+
+Hem ev sahibi hem kiracı için **mesuliyet teminatlı** bir poliçe, komşuluk anlaşmazlıklarını sigortaya taşır.
+MD,
+                'gun' => 16,
+            ],
+            [
+                'k' => 'İşyeri Sigortası',
+                'baslik' => 'Yangın veya su baskını işyerini batırır mı?',
+                'ozet' => 'İş yeri paket sigortası; bina ve demirbaşın yanında iş durması, ciro kaybı, cam, hırsızlık ve üçüncü şahıs mesuliyetini de kapsayabilir.',
+                'meta' => 'İşyeri sigortası neleri kapsar? Yangın, su baskını, iş durması / ciro kaybı, hırsızlık ve mesuliyet teminatları.',
+                'govde' => <<<'MD'
+Küçük bir yangın veya su baskını yalnızca demirbaşı değil, **işin sürekliliğini** de vurur. İş yeri paket poliçesi bu riskleri tek çatı altında toplar.
+
+## Temel teminatlar
+
+- **Yangın, infilak, yıldırım**
+- **Dâhili su, sel, fırtına, dolu**
+- **Hırsızlık** (emtia + kasa muhteviyatı, limitli)
+- **Cam kırılması**
+- **Deprem** (ek teminat)
+
+## Çoğu işletmenin atladığı: iş durması / ciro kaybı
+
+Yangın sonrası dükkân 2 ay kapalı kalırsa kira, maaş ve sabit giderler devam eder, gelir durur. **Kâr kaybı / iş durması** teminatı bu dönemdeki mali kaybı karşılar. Poliçede yer alması için ayrıca talep edilmelidir.
+
+## Mesuliyet
+
+Müşteri iş yerinizde düşüp yaralanırsa veya komşu iş yerine zarar verirseniz, **üçüncü şahıs mali mesuliyet** teminatı devreye girer.
+
+## Eksik sigorta tuzağı
+
+Stok ve demirbaş bedelini düşük göstermek primi azaltır ama hasarda **oranlı ödeme** yapılır. Envanteri gerçekçi beyan edin.
+MD,
+                'gun' => 22,
+            ],
+            [
+                'k' => 'Seyahat Sigortası',
+                'baslik' => 'Schengen vizesi için seyahat sağlık sigortası nasıl olmalı?',
+                'ozet' => 'Schengen başvurusu, tüm ülkelerde geçerli, en az 30.000 € teminatlı ve seyahat tarihlerini kapsayan bir seyahat sağlık sigortası ister. Eksik poliçe ret sebebidir.',
+                'meta' => 'Schengen vizesi seyahat sağlık sigortası şartları: 30.000 euro teminat, geçerlilik alanı ve sık yapılan hatalar.',
+                'govde' => <<<'MD'
+Vize dosyasındaki en sık eksik, hatalı düzenlenmiş seyahat sağlık sigortasıdır.
+
+## Konsolosluğun aradığı şartlar
+
+- **Tüm Schengen ülkelerinde** geçerli olmalı.
+- Asgari teminat **30.000 €** (tıbbi tedavi ve ülkeye geri gönderme dâhil).
+- **Seyahatin tamamını** kapsamalı; giriş-çıkış tarihlerini birer gün taşırması önerilir.
+- Çok girişli/uzun dönem başvurularda, ilk seyahati kapsayan poliçe + sonraki seyahatlerde yenileme taahhüdü istenebilir.
+
+## Sık yapılan hatalar
+
+- Poliçe tarihinin seyahat tarihinden **kısa** olması.
+- Teminatın 30.000 €’nun altında olması.
+- Yalnızca “kaza” teminatı; **hastalık** teminatının olmaması.
+- İsim/pasaport numarasında yazım hatası.
+
+## İpucu
+
+Vize reddi veya seyahat iptali ihtimaline karşı poliçeyi başvurudan hemen önce yaptırın; birçok üründe vize reddinde iade seçeneği vardır.
+MD,
+                'gun' => 26,
+            ],
+            [
+                'k' => 'Tarım Sigortası',
+                'baslik' => 'TARSİM nedir, neleri karşılar?',
+                'ozet' => 'Devlet Destekli Tarım Sigortaları (TARSİM), bitkisel ürün, sera, hayvan ve su ürünleri risklerini prim desteğiyle güvence altına alan sistemdir.',
+                'meta' => 'TARSİM nedir, hangi riskleri karşılar? Devlet destekli tarım sigortası kapsamı, prim desteği ve başvuru.',
+                'govde' => <<<'MD'
+TARSİM, çiftçinin dolu, don, sel gibi doğa olaylarına karşı korunmasını sağlayan, primin önemli bir kısmının **devlet tarafından karşılandığı** bir sistemdir.
+
+## Başlıca branşlar
+
+- **Bitkisel ürün:** Dolu, fırtına, hortum, yangın; paket seçimine göre **don, sel, kuraklık** gibi ek riskler.
+- **Sera:** Yapı ve içindeki ürün için dolu, fırtına, kar ağırlığı, sel.
+- **Büyükbaş / küçükbaş hayvan hayat:** Hastalık, kaza, doğum riskleri ve zorunlu kesim.
+- **Kümes hayvanları ve su ürünleri:** Sürü/stok bazında ölüm ve imha riskleri.
+
+## Prim desteği
+
+Poliçe priminin belirli bir oranı (branşa göre değişir) devlet tarafından ödenir; çiftçi yalnızca kalan kısmı öder.
+
+## Başvuru
+
+Kayıt için **Çiftçi Kayıt Sistemi (ÇKS)**, hayvancılıkta ilgili kayıt sistemleri güncel olmalıdır. Poliçe, riskin gerçekleşme dönemi başlamadan yaptırılmalıdır (örneğin dolu için ürün gelişme döneminden önce).
+MD,
+                'gun' => 29,
+            ],
+            [
+                'k' => 'Genel & Rehber',
+                'baslik' => '2026 araç satışında noter ve trafik sigortası kuralları',
+                'ozet' => 'Araç devri noterde yapılır; satış sonrası trafik sigortası alıcıya otomatik geçmez. Satıcı poliçeyi iptal ettirip kalan primi iade alabilir.',
+                'meta' => 'Araç satışında noter işlemi ve trafik sigortası: devir sonrası poliçe ne olur, iade nasıl alınır, dikkat edilecekler.',
+                'govde' => <<<'MD'
+İkinci el araç alım-satımında en çok karıştırılan konu, mevcut sigortaların devir sonrası durumudur.
+
+## Noter devri
+
+Araç mülkiyeti yalnızca **noterde** yapılan satış sözleşmesiyle geçer. Devir anında araç üzerinde **ödenmemiş vergi ve trafik cezası** bulunmamalıdır.
+
+## Trafik sigortası ne olur?
+
+- Satıcının poliçesi **alıcıya otomatik geçmez**.
+- Satıcı, noter sözleşmesiyle poliçeyi **iptal ettirip** kullanılmayan güne ait primi **gün esaslı** geri alabilir.
+- Alıcı, aracı devraldığı tarihten itibaren **kendi adına** yeni bir trafik sigortası yaptırmak zorundadır; sigortasız kullanım cezası araç sahibine kesilir.
+
+## Kaskoda durum
+
+Kasko da gün esaslı iade edilir; ancak poliçe döneminde hasar ödemesi yapıldıysa iade tutarı düşebilir veya sıfırlanabilir.
+
+## Hasarsızlık kademesi
+
+Kademe hakkı **araca değil, sigortalıya** aittir. Yeni aracınıza poliçe yaptırırken mevcut basamağınızdan yararlanabilirsiniz; eski poliçeyi iptal ederken kademe bilginizi not alın.
+MD,
+                'gun' => 32,
             ],
         ];
 
