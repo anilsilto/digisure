@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Customer extends Model implements Authenticatable
 {
@@ -61,6 +62,11 @@ class Customer extends Model implements Authenticatable
     public function quoteRequests(): HasMany
     {
         return $this->hasMany(QuoteRequest::class);
+    }
+
+    public function campaignProfile(): HasOne
+    {
+        return $this->hasOne(CampaignProfile::class);
     }
 
     public function scopeWhereTc(Builder $query, string $tc): Builder

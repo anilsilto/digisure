@@ -78,6 +78,43 @@ return [
     |--------------------------------------------------------------------------
     | Nihai tablo yapısı Task 13'te doldurulur.
     */
+    /*
+    |--------------------------------------------------------------------------
+    | "Zafir Güvence Karma" kampanyası
+    |--------------------------------------------------------------------------
+    | Müşteri toplam >= threshold puana ulaşınca ödül menüsünden 1 hak seçer.
+    | branches: kampanyaya özel puan listesi (sistemdeki ürün tiplerinden bağımsız).
+    | packages: baraj altındaki müşteriye önerilecek hazır kombinasyonlar.
+    */
+    'campaign' => [
+        'name' => 'Zafir Güvence Karma',
+        'threshold' => 5,
+
+        'branches' => [
+            'kasko' => ['label' => 'Kasko', 'points' => 5],
+            'tss' => ['label' => 'Tamamlayıcı Sağlık (TSS)', 'points' => 5],
+            'konut' => ['label' => 'Konut Sigortası', 'points' => 3],
+            'imm' => ['label' => 'İMM (Yüksek Limitli)', 'points' => 2],
+            'ferdi_kaza' => ['label' => 'Ferdi Kaza', 'points' => 1],
+            'dask' => ['label' => 'DASK', 'points' => 1],
+            'trafik' => ['label' => 'Trafik', 'points' => 0],
+        ],
+
+        'rewards' => [
+            'oto_bakim' => ['label' => 'Oto Bakım & Test Paketi', 'desc' => 'Periyodik bakım ve check-up hizmetlerinde %10 indirim.'],
+            'mobilite' => ['label' => 'Mobilite Desteği', 'desc' => 'Kısa süreli araç kiralamalarında %10 indirim avantajı.'],
+            'lastik_vip' => ['label' => 'Lastik VIP Hizmeti', 'desc' => 'Lastik değişim, balans ve depolama hizmetlerinde öncelikli VIP servis.'],
+            'lastik_fiyat' => ['label' => 'Lastik Fiyat Koruması', 'desc' => 'Yıl boyunca zamlardan etkilenmeden, sabit fiyat garantisiyle lastik alım hakkı.'],
+        ],
+
+        'packages' => [
+            ['label' => 'Stratejik Paket (Ev + Araç)', 'branches' => ['konut', 'imm']],
+            ['label' => 'Tam Koruma Paketi', 'branches' => ['konut', 'dask', 'ferdi_kaza']],
+            ['label' => 'Premium Yol (Hızlı Kazanım)', 'branches' => ['kasko']],
+            ['label' => 'Sadakat Yolu', 'branches' => ['tss']],
+        ],
+    ],
+
     'rates' => [
         // 2026 taslak değerler — acente güncelleyecek. cc dilimi => yaş dilimi => yıllık TL.
         'mtv' => [

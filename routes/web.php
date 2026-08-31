@@ -1,17 +1,19 @@
 <?php
 
 use App\Http\Controllers\Customer\AuthController as CustomerAuthController;
+use App\Http\Controllers\Customer\CampaignController as CustomerCampaignController;
 use App\Http\Controllers\Customer\DataRequestController as CustomerDataRequestController;
 use App\Http\Controllers\Customer\PolicyController as CustomerPolicyController;
 use App\Http\Controllers\Customer\ProfileController as CustomerProfileController;
 use App\Http\Controllers\Customer\QuoteController as CustomerQuoteController;
 use App\Http\Controllers\Panel\AuthController as PanelAuthController;
-use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
 use App\Http\Controllers\Panel\BlogCategoryController as PanelBlogCategoryController;
+use App\Http\Controllers\Panel\CampaignController as PanelCampaignController;
 use App\Http\Controllers\Panel\ContactMessageController as PanelContactMessageController;
+use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
 use App\Http\Controllers\Panel\DataRequestController as PanelDataRequestController;
-use App\Http\Controllers\Panel\PostController as PanelPostController;
 use App\Http\Controllers\Panel\PolicyController as PanelPolicyController;
+use App\Http\Controllers\Panel\PostController as PanelPostController;
 use App\Http\Controllers\Panel\ProductTypeController as PanelProductTypeController;
 use App\Http\Controllers\Panel\QuoteController as PanelQuoteController;
 use App\Http\Controllers\Panel\QuoteRequestController as PanelQuoteRequestController;
@@ -99,6 +101,11 @@ Route::prefix('panel')->name('panel.')->group(function () {
         Route::post('policeler', [PanelPolicyController::class, 'store'])->name('policies.store');
         Route::get('policeler/{policy}', [PanelPolicyController::class, 'show'])->name('policies.show');
 
+        Route::get('kampanya', [PanelCampaignController::class, 'index'])->name('campaign.index');
+        Route::get('kampanya/{customer:id}', [PanelCampaignController::class, 'show'])->name('campaign.show');
+        Route::put('kampanya/{customer:id}', [PanelCampaignController::class, 'update'])->name('campaign.update');
+        Route::post('kampanya/{customer:id}/odul', [PanelCampaignController::class, 'selectReward'])->name('campaign.reward');
+
         Route::get('iletisim-mesajlari', [PanelContactMessageController::class, 'index'])->name('contact-messages.index');
         Route::post('iletisim-mesajlari/{contactMessage:id}/okundu', [PanelContactMessageController::class, 'markRead'])->name('contact-messages.read');
         Route::delete('iletisim-mesajlari/{contactMessage:id}', [PanelContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
@@ -152,6 +159,9 @@ Route::prefix('hesabim')->name('customer.')->group(function () {
 
         Route::get('profil', [CustomerProfileController::class, 'edit'])->name('profile.edit');
         Route::put('profil', [CustomerProfileController::class, 'update'])->name('profile.update');
+
+        Route::get('kampanya', [CustomerCampaignController::class, 'show'])->name('campaign.show');
+        Route::post('kampanya/odul', [CustomerCampaignController::class, 'selectReward'])->name('campaign.reward');
 
         Route::post('veri-talebi', [CustomerDataRequestController::class, 'store'])->name('data-request.store');
     });
