@@ -8,6 +8,7 @@ use App\Http\Controllers\Customer\QuoteController as CustomerQuoteController;
 use App\Http\Controllers\Panel\AuthController as PanelAuthController;
 use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
 use App\Http\Controllers\Panel\BlogCategoryController as PanelBlogCategoryController;
+use App\Http\Controllers\Panel\ContactMessageController as PanelContactMessageController;
 use App\Http\Controllers\Panel\DataRequestController as PanelDataRequestController;
 use App\Http\Controllers\Panel\PostController as PanelPostController;
 use App\Http\Controllers\Panel\PolicyController as PanelPolicyController;
@@ -98,6 +99,9 @@ Route::prefix('panel')->name('panel.')->group(function () {
         Route::post('policeler', [PanelPolicyController::class, 'store'])->name('policies.store');
         Route::get('policeler/{policy}', [PanelPolicyController::class, 'show'])->name('policies.show');
 
+        Route::get('iletisim-mesajlari', [PanelContactMessageController::class, 'index'])->name('contact-messages.index');
+        Route::post('iletisim-mesajlari/{contactMessage:id}/okundu', [PanelContactMessageController::class, 'markRead'])->name('contact-messages.read');
+        Route::delete('iletisim-mesajlari/{contactMessage:id}', [PanelContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
         Route::get('veri-talepleri', [PanelDataRequestController::class, 'index'])->name('data-requests.index');
         Route::post('veri-talepleri/{dataRequest}/isle', [PanelDataRequestController::class, 'markHandled'])->name('data-requests.handle');
 
