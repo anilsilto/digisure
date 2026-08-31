@@ -11,6 +11,7 @@ use App\Http\Controllers\Panel\AuthController as PanelAuthController;
 use App\Http\Controllers\Panel\BlogCategoryController as PanelBlogCategoryController;
 use App\Http\Controllers\Panel\CampaignController as PanelCampaignController;
 use App\Http\Controllers\Panel\ContactMessageController as PanelContactMessageController;
+use App\Http\Controllers\Panel\CustomerController as PanelCustomerController;
 use App\Http\Controllers\Panel\DashboardController as PanelDashboardController;
 use App\Http\Controllers\Panel\DataRequestController as PanelDataRequestController;
 use App\Http\Controllers\Panel\PolicyController as PanelPolicyController;
@@ -101,6 +102,12 @@ Route::prefix('panel')->name('panel.')->group(function () {
         Route::get('policeler/olustur', [PanelPolicyController::class, 'create'])->name('policies.create');
         Route::post('policeler', [PanelPolicyController::class, 'store'])->name('policies.store');
         Route::get('policeler/{policy}', [PanelPolicyController::class, 'show'])->name('policies.show');
+
+        Route::get('musteriler', [PanelCustomerController::class, 'index'])->name('customers.index');
+        Route::get('musteriler/{customer:id}', [PanelCustomerController::class, 'show'])->name('customers.show');
+        Route::post('musteriler/{customer:id}/varlik', [PanelCustomerController::class, 'storeAsset'])->name('customers.asset.store');
+        Route::delete('musteriler/{customer:id}/varlik/{asset:id}', [PanelCustomerController::class, 'removeAsset'])->name('customers.asset.remove');
+        Route::post('musteriler/{customer:id}/risk-talep', [PanelCustomerController::class, 'createLead'])->name('customers.risk-lead');
 
         Route::get('kampanya', [PanelCampaignController::class, 'index'])->name('campaign.index');
         Route::get('kampanya/{customer:id}', [PanelCampaignController::class, 'show'])->name('campaign.show');
