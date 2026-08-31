@@ -349,7 +349,7 @@ MD,
             'Kasko Sigortası' => 'img/kasko.jpeg',
             'Sağlık Sigortası' => 'img/saglik.jpeg',
             'Hasar ve Süreç' => 'img/hasar.jpeg',
-            // Trafik: özel görsel yüklenmedi, gradyan placeholder kullanılır.
+            'Trafik Sigortası' => 'img/trafik.jpeg',
         ];
 
         foreach ($yazilar as $y) {
