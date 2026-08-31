@@ -344,7 +344,17 @@ MD,
             ],
         ];
 
+        // Kategoriye göre kapak görseli (public/img/ altında hazır)
+        $kapaklar = [
+            'Kasko Sigortası' => 'img/kasko.jpeg',
+            'Sağlık Sigortası' => 'img/saglik.jpeg',
+            'Hasar ve Süreç' => 'img/hasar.jpeg',
+            // Trafik: özel görsel yüklenmedi, gradyan placeholder kullanılır.
+        ];
+
         foreach ($yazilar as $y) {
+            $kapak = $kapaklar[$y['k']] ?? null;
+
             Post::updateOrCreate(
                 ['slug' => Str::slug($y['baslik'])],
                 [
@@ -353,6 +363,7 @@ MD,
                     'excerpt' => $y['ozet'],
                     'body' => $y['govde'].$cta,
                     'meta_description' => $y['meta'],
+                    'cover_path' => ($kapak && file_exists(public_path($kapak))) ? $kapak : null,
                     'status' => 'yayinda',
                     'published_at' => now()->subDays($y['gun']),
                 ],

@@ -74,7 +74,14 @@ class Post extends Model
 
     public function coverUrl(): ?string
     {
-        return $this->cover_path ? asset('storage/'.$this->cover_path) : null;
+        if (! $this->cover_path) {
+            return null;
+        }
+
+        // public/ altındaki hazır görseller (img/...) doğrudan; panelden yüklenenler storage'dan.
+        return str_starts_with($this->cover_path, 'img/')
+            ? asset($this->cover_path)
+            : asset('storage/'.$this->cover_path);
     }
 
     public static function uniqueSlug(string $title, ?int $ignoreId = null): string
