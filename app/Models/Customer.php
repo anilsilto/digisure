@@ -69,6 +69,11 @@ class Customer extends Model implements Authenticatable
         return $this->hasOne(CampaignProfile::class);
     }
 
+    public function assets(): HasMany
+    {
+        return $this->hasMany(CustomerAsset::class);
+    }
+
     public function scopeWhereTc(Builder $query, string $tc): Builder
     {
         return $query->where('tc_hash', Pii::hash($tc));
