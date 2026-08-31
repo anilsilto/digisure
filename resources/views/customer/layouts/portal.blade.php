@@ -13,6 +13,7 @@
             <nav class="flex items-center gap-4 text-sm font-medium text-muted">
                 <a href="{{ route('customer.quotes.index') }}" class="{{ request()->routeIs('customer.quotes.*') ? 'text-navy' : 'hover:text-navy' }}">Tekliflerim</a>
                 <a href="/hesabim/policeler" class="{{ request()->is('hesabim/policeler*') ? 'text-navy' : 'hover:text-navy' }}">Poliçelerim</a>
+                <a href="{{ route('customer.risk.show') }}" class="{{ request()->routeIs('customer.risk.*') ? 'text-navy' : 'hover:text-navy' }}">Risklerim</a>
                 <a href="{{ route('customer.campaign.show') }}" class="{{ request()->routeIs('customer.campaign.*') ? 'text-navy' : 'hover:text-navy' }}">Kampanya</a>
                 <a href="{{ route('customer.profile.edit') }}" class="{{ request()->routeIs('customer.profile.*') ? 'text-navy' : 'hover:text-navy' }}">Profilim</a>
                 <form method="POST" action="{{ route('customer.logout') }}">@csrf

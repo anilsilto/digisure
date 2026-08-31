@@ -6,6 +6,7 @@ use App\Http\Controllers\Customer\DataRequestController as CustomerDataRequestCo
 use App\Http\Controllers\Customer\PolicyController as CustomerPolicyController;
 use App\Http\Controllers\Customer\ProfileController as CustomerProfileController;
 use App\Http\Controllers\Customer\QuoteController as CustomerQuoteController;
+use App\Http\Controllers\Customer\RiskController as CustomerRiskController;
 use App\Http\Controllers\Panel\AuthController as PanelAuthController;
 use App\Http\Controllers\Panel\BlogCategoryController as PanelBlogCategoryController;
 use App\Http\Controllers\Panel\CampaignController as PanelCampaignController;
@@ -162,6 +163,11 @@ Route::prefix('hesabim')->name('customer.')->group(function () {
 
         Route::get('kampanya', [CustomerCampaignController::class, 'show'])->name('campaign.show');
         Route::post('kampanya/odul', [CustomerCampaignController::class, 'selectReward'])->name('campaign.reward');
+
+        Route::get('risklerim', [CustomerRiskController::class, 'show'])->name('risk.show');
+        Route::post('risklerim/varlik', [CustomerRiskController::class, 'storeAsset'])->name('risk.asset.store');
+        Route::delete('risklerim/varlik/{asset:id}', [CustomerRiskController::class, 'removeAsset'])->name('risk.asset.remove');
+        Route::post('risklerim/talep', [CustomerRiskController::class, 'createLead'])->name('risk.lead');
 
         Route::post('veri-talebi', [CustomerDataRequestController::class, 'store'])->name('data-request.store');
     });
