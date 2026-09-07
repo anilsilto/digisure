@@ -24,3 +24,12 @@ it('shows a request detail with masked customer data', function () {
 it('guards the inbox from guests', function () {
     $this->get('/panel/teklifler')->assertRedirect('/panel/giris');
 });
+
+it('tags risk panel requests in the inbox', function () {
+    $r = makeQuoteRequest('saglik');
+    $r->update(['source' => 'risk_paneli']);
+
+    actingPanel()->get('/panel/teklifler')
+        ->assertOk()
+        ->assertSee('Risk Paneli');
+});

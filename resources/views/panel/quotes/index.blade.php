@@ -58,6 +58,11 @@
                     <tr class="hover:bg-navy-tint/50">
                         <td class="px-4 py-3">
                             <a href="{{ route('panel.quotes.show', $r) }}" class="font-mono font-semibold text-navy hover:underline">{{ $r->reference_no }}</a>
+                            @if ($r->source === 'risk_paneli')
+                                <span class="ml-1 rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-semibold text-accent-dark">Risk Paneli</span>
+                            @elseif ($r->source === 'panel')
+                                <span class="ml-1 rounded-full bg-navy-tint px-2 py-0.5 text-[10px] font-semibold text-navy">Panel</span>
+                            @endif
                         </td>
                         <td class="px-4 py-3">{{ $r->customer->first_name }} {{ $r->customer->last_name }}</td>
                         <td class="px-4 py-3">{{ $r->productType->name }}</td>
