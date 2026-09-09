@@ -20,6 +20,13 @@ return Application::configure(basePath: dirname(__DIR__))
                 ? route('customer.login')
                 : route('panel.login');
         });
+
+        // Zaten giriş yapmış kullanıcı giriş sayfasına gelirse ilgili panele yönlensin.
+        $middleware->redirectUsersTo(function (Request $request) {
+            return $request->is('hesabim', 'hesabim/*')
+                ? '/hesabim'
+                : '/panel';
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
