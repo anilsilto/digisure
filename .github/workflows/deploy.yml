@@ -3,7 +3,8 @@ name: Deploy to FTP
 on:
   push:
     branches:
-      - main # Veya hangi branch'i canlıya alıyorsan (örn: master)
+      - master # Veya hangi branch'i canlıya alıyorsan (örn: master)
+  workflow_dispatch: # <-- Manuel tetikleme butonunu açan satır
 
 jobs:
   web-deploy:
