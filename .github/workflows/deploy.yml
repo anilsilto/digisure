@@ -1,0 +1,24 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main # Veya hangi branch'i canlıya alıyorsan (örn: master)
+
+jobs:
+  web-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 📂 Sync files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.polisurance.net
+          username: zafir@polisurance.net
+          password: Zafir2026!
+          port: 21
+          # FTP kullanıcısı zaten doğru klasöre bakıyorsa burayı '/' bırakabilirsin.
+          # Eğer ana dizine bağlanıyorsa '/public_html/' şeklinde belirtebilirsin.
+          server-dir: /
