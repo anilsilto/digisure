@@ -23,4 +23,4 @@ jobs:
           security-mode: ftps # <-- TLS/SSL güvenliğini zorunlu kılan satır
           # FTP kullanıcısı zaten doğru klasöre bakıyorsa burayı '/' bırakabilirsin.
           # Eğer ana dizine bağlanıyorsa '/public_html/' şeklinde belirtebilirsin.
-          server-dir: /public_html
+          server-dir: /public_html/
