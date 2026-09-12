@@ -20,6 +20,8 @@ jobs:
           username: zafir@polisurance.net
           password: Zafir2026!
           port: 21
+          protocol: ftps
+          security: loose
           security-mode: ftps # <-- TLS/SSL güvenliğini zorunlu kılan satır
           # FTP kullanıcısı zaten doğru klasöre bakıyorsa burayı '/' bırakabilirsin.
           # Eğer ana dizine bağlanıyorsa '/public_html/' şeklinde belirtebilirsin.
